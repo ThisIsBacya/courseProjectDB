@@ -30,26 +30,42 @@ public class MainController {
         studentRadio.setToggleGroup(group);
         prepodRadio.setToggleGroup(group);
         adminRadio.setToggleGroup(group);
+        nextButton.setOnAction(event -> {
+            RadioButton selection = (RadioButton) group.getSelectedToggle();
+            nextButton.getScene().getWindow().hide();
 
-//        if(studentRadio.equals(true)) {
-            nextButton.setOnAction(event -> {
-                RadioButton selection = (RadioButton) group.getSelectedToggle();
-                nextButton.getScene().getWindow().hide();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("student.fxml"));
 
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("registration.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
-                try {
-                    fxmlLoader.load();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Окно студента");
+            stage.show();
+        });
 
-                Stage stage = new Stage();
-                Parent root = fxmlLoader.getRoot();
-                stage.setScene(new Scene(root));
-                stage.show();
-            });
-        }
+//        nextButton.setOnAction(event -> {
+//            RadioButton selection = (RadioButton) group.getSelectedToggle();
+//            nextButton.getScene().getWindow().hide();
+//
+//            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("prepod.fxml"));
+//
+//            try {
+//                fxmlLoader.load();
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//
+//            Stage stage = new Stage();
+//            Parent root = fxmlLoader.getRoot();
+//            stage.setScene(new Scene(root));
+//            stage.setTitle("Окно преподавателя");
+//            stage.show();
+//        });
     }
-
-//}
+}
