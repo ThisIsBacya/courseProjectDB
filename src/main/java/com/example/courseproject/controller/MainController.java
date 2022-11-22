@@ -1,5 +1,6 @@
 package com.example.courseproject.controller;
 
+import com.example.courseproject.HelloApplication;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,26 +31,25 @@ public class MainController {
         prepodRadio.setToggleGroup(group);
         adminRadio.setToggleGroup(group);
 
-        if(adminRadio.isSelected()) {
+//        if(studentRadio.equals(true)) {
             nextButton.setOnAction(event -> {
                 RadioButton selection = (RadioButton) group.getSelectedToggle();
                 nextButton.getScene().getWindow().hide();
 
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("resources/com.example.courseproject/registration.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("registration.fxml"));
 
                 try {
-                    loader.load();
+                    fxmlLoader.load();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
 
                 Stage stage = new Stage();
-                Parent parent = loader.getRoot();
-                stage.setScene(new Scene(parent));
-                stage.showAndWait();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.show();
             });
         }
     }
 
-}
+//}
