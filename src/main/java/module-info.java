@@ -8,6 +8,7 @@ module com.example.courseproject {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires org.postgresql.jdbc;
 
     opens com.example.courseproject to javafx.fxml;
     exports com.example.courseproject;

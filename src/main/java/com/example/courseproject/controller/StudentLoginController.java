@@ -4,9 +4,8 @@ import com.example.courseproject.Database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import org.w3c.dom.events.MouseEvent;
 
-public class StudentController {
+public class StudentLoginController {
 
     @FXML
     private TextField inputTextId;
@@ -19,5 +18,9 @@ public class StudentController {
     @FXML
     void initialize() {
         database = new Database();
+        nextButtonId.setOnAction(actionEvent -> {
+            nextButtonId.getScene().getWindow().hide();
+
+        });
     }
 }
