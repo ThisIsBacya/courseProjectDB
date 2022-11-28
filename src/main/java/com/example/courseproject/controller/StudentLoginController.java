@@ -3,6 +3,7 @@ package com.example.courseproject.controller;
 import com.example.courseproject.database.Database;
 import com.example.courseproject.database.Student;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.sql.ResultSet;
@@ -48,6 +49,13 @@ public class StudentLoginController {
         }
         if (count >= 1) {
             System.out.println("Success!");
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Сообщение об ошибке");
+            alert.setHeaderText("Ошибка!");
+            alert.setContentText("Вы ввели неправильный номер студ билета!");
+            alert.showAndWait();
         }
     }
 }
