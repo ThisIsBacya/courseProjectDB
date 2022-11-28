@@ -1,26 +1,53 @@
 package com.example.courseproject.controller;
 
-import com.example.courseproject.Database;
+import com.example.courseproject.database.Database;
+import com.example.courseproject.database.Student;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class StudentLoginController {
-
     @FXML
     private TextField inputTextId;
 
     @FXML
     private Button nextButtonId;
 
-    Database database = null;
-
     @FXML
     void initialize() {
-        database = new Database();
         nextButtonId.setOnAction(actionEvent -> {
-            nextButtonId.getScene().getWindow().hide();
+            String nomerStudBilet = inputTextId.getText().trim();
+            if (!nomerStudBilet.equals("")) {
+                try {
+                    loginStudent(nomerStudBilet);
+                } catch (SQLException | ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
         });
+    }
+
+    private void loginStudent(String nomerStudBilet) throws SQLException, ClassNotFoundException {
+        Database database = new Database();
+        Student student = new Student();
+        student.setNomer_stud_bilet(nomerStudBilet);
+        database.getConnection();
+        ResultSet resultSet = database.getNomerStudBilet(student);
+
+        int count = 0;
+
+        try {
+            while (resultSet.next()) {
+                count++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (count >= 1) {
+            System.out.println("Success!");
+        }
     }
 }
