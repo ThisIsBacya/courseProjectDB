@@ -38,23 +38,15 @@ public class StudentLoginController {
         database.getConnection();
         ResultSet resultSet = database.getNomerStudBilet(student);
 
-        int count = 0;
-
-        try {
-            while (resultSet.next()) {
-                count++;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        if (count >= 1) {
-            System.out.println("Success!");
-        }
-        else {
+       if(resultSet.next()) {
+           System.out.println("Success");
+       }
+        else
+        {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Сообщение об ошибке");
             alert.setHeaderText("Ошибка!");
-            alert.setContentText("Вы ввели неправильный номер студ билета!");
+            alert.setContentText("Вы ввели неправильный номер студенческого билета!");
             alert.showAndWait();
         }
     }
