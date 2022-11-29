@@ -42,7 +42,7 @@ public class PrepodLoginController {
         user.setPassword(password);
         ResultSet resultSet = database.getLoginPrepod(user);
 
-         if(resultSet.next()) {
+         if(resultSet.next()) { //TODO:
             System.out.println("Success");
         }
         else

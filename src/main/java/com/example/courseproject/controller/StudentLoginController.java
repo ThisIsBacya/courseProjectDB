@@ -42,7 +42,7 @@ public class StudentLoginController {
         database.getConnection();
         ResultSet resultSet = database.getNomerStudBilet(student);
 
-       if(resultSet.next()) {
+       if(resultSet.next()) { //TODO:
            System.out.println("Success");
        }
         else

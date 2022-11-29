@@ -44,7 +44,7 @@ public class AdminLoginController {
         user.setPassword(password);
         ResultSet resultSet = database.getLoginAdmin(user);
 
-        if(resultSet.next()) {
+        if(resultSet.next()) { //TODO:
             System.out.println("Success");
         }
         else
