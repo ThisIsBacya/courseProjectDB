@@ -9,4 +9,10 @@ public class Const {
     public static final String STUDENTS_GRUPPAID = "gruppa_id";
     public static final String STUDENTS_STUDBILET = "nomer_stud_bilet";
     public static final String STUDENTS_KURS = "kurs";
+
+    // Константы для юзеров
+    public static final String USERS_TABLE = "users";
+    public static final String USERS_LOGIN = "login";
+    public static final String USERS_PASSWORD = "password";
+    public static final String USERS_ACCESS_LEVEL = "access_level";
 }

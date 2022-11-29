@@ -26,6 +26,7 @@ public class Database {
 //
 //    }
 
+    //Логин для студента
     public ResultSet getNomerStudBilet(Student student) {
         ResultSet resultSet = null;
 
@@ -36,6 +37,41 @@ public class Database {
             preparedStatement.setString(1, student.getNomer_stud_bilet());
             resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    //Логин для админа
+    public ResultSet getLoginAdmin(User user) {
+        ResultSet resultSet = null;
+
+        String select = "SELECT * FROM " + Const.USERS_TABLE + " WHERE " +
+                Const.USERS_LOGIN + "=? AND " + Const.USERS_PASSWORD + "=? AND " + Const.USERS_ACCESS_LEVEL + "=1";
+        try {
+            PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
+            preparedStatement.setString(1, user.getLogin());
+            preparedStatement.setString(2, user.getPassword());
+            resultSet = preparedStatement.executeQuery();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+    //Логин для преподователя
+    public ResultSet getLoginPrepod(User user) {
+        ResultSet resultSet = null;
+
+        String select = "SELECT * FROM " + Const.USERS_TABLE + " WHERE " +
+                Const.USERS_LOGIN + "=? AND " + Const.USERS_PASSWORD + "=? AND " + Const.USERS_ACCESS_LEVEL + "=2";
+        try {
+            PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
+            preparedStatement.setString(1, user.getLogin());
+            preparedStatement.setString(2, user.getPassword());
+            resultSet = preparedStatement.executeQuery();
+        }
+        catch (SQLException e) {
             e.printStackTrace();
         }
         return resultSet;

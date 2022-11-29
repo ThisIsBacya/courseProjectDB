@@ -1,7 +1,6 @@
 package com.example.courseproject.controller;
 
 import com.example.courseproject.HelloApplication;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,42 +29,54 @@ public class MainController {
         studentRadio.setToggleGroup(group);
         prepodRadio.setToggleGroup(group);
         adminRadio.setToggleGroup(group);
+        RadioButton selection = (RadioButton) group.getSelectedToggle();
         nextButton.setOnAction(event -> {
-            RadioButton selection = (RadioButton) group.getSelectedToggle();
-            nextButton.getScene().getWindow().hide();
+            if (studentRadio.isSelected()) {
+                nextButton.getScene().getWindow().hide();
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("studentLogin.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
 
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("student.fxml"));
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Окно входа для студента");
+                stage.showAndWait();
+            }
+            if(prepodRadio.isSelected()) {
+                nextButton.getScene().getWindow().hide();
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("prepodLogin.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
 
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Окно входа для преподавателя");
+                stage.showAndWait();
             }
 
-            Stage stage = new Stage();
-            Parent root = fxmlLoader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Окно студента");
-            stage.show();
-        });
+            if (adminRadio.isSelected()) {
+                nextButton.getScene().getWindow().hide();
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminLogin.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException();
+                }
 
-//        nextButton.setOnAction(event -> {
-//            RadioButton selection = (RadioButton) group.getSelectedToggle();
-//            nextButton.getScene().getWindow().hide();
-//
-//            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("prepod.fxml"));
-//
-//            try {
-//                fxmlLoader.load();
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//
-//            Stage stage = new Stage();
-//            Parent root = fxmlLoader.getRoot();
-//            stage.setScene(new Scene(root));
-//            stage.setTitle("Окно преподавателя");
-//            stage.show();
-//        });
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Окно входа для администратора");
+                stage.showAndWait();
+            }
+        });
     }
 }
