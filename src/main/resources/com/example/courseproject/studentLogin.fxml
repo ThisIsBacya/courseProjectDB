@@ -26,6 +26,5 @@
             <Button fx:id="nextButtonId" layoutX="156.0" layoutY="224.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="274.0" text="Перейти дальше" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="140.0" fitWidth="190.0" layoutX="-258.0" layoutY="-167.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
