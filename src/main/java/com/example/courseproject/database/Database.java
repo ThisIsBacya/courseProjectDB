@@ -47,12 +47,11 @@ public class Database {
         ResultSet resultSet = null;
 
         String select = "SELECT * FROM " + Const.USERS_TABLE + " WHERE " +
-                Const.USERS_LOGIN + "=? AND " + Const.USERS_PASSWORD + "=?" + user.getLevel_access(1);
+                Const.USERS_LOGIN + "=? AND " + Const.USERS_PASSWORD + "=?";
         try {
             PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
             preparedStatement.setString(1, user.getLogin());
             preparedStatement.setString(2, user.getPassword());
-            preparedStatement.setString(3, user.getLevel_access(1));
             resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -65,7 +64,7 @@ public class Database {
         ResultSet resultSet = null;
 
         String select = "SELECT * FROM " + Const.USERS_TABLE + " WHERE " +
-                Const.USERS_LOGIN + "=? AND " + Const.USERS_PASSWORD + "=?" + user.getLevel_access(2);
+                Const.USERS_LOGIN + "=? AND " + Const.USERS_PASSWORD + "=?";
         try {
             PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
             preparedStatement.setString(1, user.getLogin());
