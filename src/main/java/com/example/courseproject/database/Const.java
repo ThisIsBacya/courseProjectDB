@@ -13,6 +13,7 @@ public class Const {
     // Константы для юзеров
     public static final String USERS_TABLE = "users";
     public static final String USERS_ID = "users_id";
+
     public static final String USERS_LOGIN = "login";
     public static final String USERS_PASSWORD = "password";
     public static final String USERS_ACCESS_LEVEL = "access_level";

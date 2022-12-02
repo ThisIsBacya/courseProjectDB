@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.StudentController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FF7F50;">
+         <children>
+            <Label fx:id="LabelStudentGruppa" layoutX="193.0" layoutY="78.0" text="Группа" />
+            <Label fx:id="LabelStudentNomerStudBileta" layoutX="272.0" layoutY="78.0" text="Номер студенчего билета" />
+            <Label fx:id="LabelStudentKurs" layoutX="462.0" layoutY="78.0" text="Курс" />
+            <Label fx:id="LabelsStudentSpec" layoutX="510.0" layoutY="78.0" text="Специальность" />
+            <Label fx:id="LabelStudentFIO" layoutX="69.0" layoutY="70.0" prefHeight="33.0" prefWidth="98.0" text="ФИО студента" />
+            <Button fx:id="showAccountingMonth" layoutX="45.0" layoutY="274.0" mnemonicParsing="false" text="Показать отчетность за последний месяц" />
+            <Button fx:id="showAccountingMonthSemester" layoutX="319.0" layoutY="274.0" mnemonicParsing="false" text="Показать отчетность за семестр" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

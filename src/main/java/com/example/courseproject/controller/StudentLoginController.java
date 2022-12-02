@@ -1,25 +1,37 @@
 package com.example.courseproject.controller;
 
+import com.example.courseproject.HelloApplication;
 import com.example.courseproject.database.Database;
 import com.example.courseproject.database.Student;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class StudentLoginController {
+    @FXML
+    private Button backButton;
+
+    @FXML
+    private Button backButtonId;
+
     @FXML
     private TextField inputTextId;
 
     @FXML
     private Button nextButtonId;
 
-    @FXML
-    private ImageView backbuttonId;
+    public StudentLoginController() {
+    }
 
     @FXML
     void initialize() {
@@ -42,8 +54,19 @@ public class StudentLoginController {
         database.getConnection();
         ResultSet resultSet = database.getNomerStudBilet(student);
 
-       if(resultSet.next()) { //TODO:
-           System.out.println("Success");
+       if(resultSet.next()) {
+           nextButtonId.getScene().getWindow().hide();
+           FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("student.fxml"));
+           try {
+               fxmlLoader.load();
+           } catch (IOException e) {
+               throw new RuntimeException();
+           }
+           Stage stage = new Stage();
+           Parent root = fxmlLoader.getRoot();
+           stage.setScene(new Scene(root));
+           stage.setTitle("Студент");
+           stage.showAndWait();
        }
         else
         {

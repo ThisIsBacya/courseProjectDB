@@ -29,7 +29,7 @@ public class User {
         this.password = password;
     }
 
-    public String getLevel_access() {
+    public String getLevel_access(int i) {
         return level_access;
     }
 
