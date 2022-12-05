@@ -1,4 +1,4 @@
-package com.example.courseproject.database;
+package com.example.courseproject.model;
 
 public class Poseshaemost {
     private String data;

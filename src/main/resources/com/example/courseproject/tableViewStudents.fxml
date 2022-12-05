@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="458.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.TableViewStudentsController">
+    <children>
+        <AnchorPane layoutX="-317.0" layoutY="-166.0" prefHeight="200.0" prefWidth="200.0" />
+        <AnchorPane prefHeight="491.0" prefWidth="718.0" style="-fx-background-color: #FF7F50;">
+            <children>
+                <TableView fx:id="studentsTable" layoutX="14.0" layoutY="14.0" prefHeight="462.0" prefWidth="698.0">
+                    <columns>
+                        <TableColumn fx:id="idColumn" prefWidth="75.0" text="Id" />
+                        <TableColumn fx:id="fioColumn" prefWidth="210.0" text="ФИО" />
+                        <TableColumn fx:id="gruppaIdColumn" prefWidth="75.0" text="Id группы" />
+                        <TableColumn fx:id="nomerStudBiletColumn" prefWidth="131.0" text="Номер студ. билета" />
+                        <TableColumn fx:id="kursColumn" prefWidth="75.0" text="Курс" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -2,7 +2,7 @@ package com.example.courseproject.controller;
 
 import com.example.courseproject.HelloApplication;
 import com.example.courseproject.database.Database;
-import com.example.courseproject.database.Student;
+import com.example.courseproject.model.Student;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,11 +31,30 @@ public class StudentLoginController {
     @FXML
     private Button nextButtonId;
 
-    public StudentLoginController() {
+    Database database = new Database();
+    @FXML
+    private ImageView backToPrev;
+
+    @FXML
+    void backToPrev(MouseEvent event) {
+
+        backToPrev.getScene().getWindow().hide();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("role.fxml"));
+        try {
+            fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException();
+        }
+        Stage stage = new Stage();
+        Parent root = fxmlLoader.getRoot();
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
+
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws SQLException, ClassNotFoundException {
+        database.getConnection();
         nextButtonId.setOnAction(actionEvent -> {
             String nomerStudBilet = inputTextId.getText().trim();
             if (!nomerStudBilet.equals("")) {
@@ -48,10 +68,10 @@ public class StudentLoginController {
     }
 
     private void loginStudent(String nomerStudBilet) throws SQLException, ClassNotFoundException {
-        Database database = new Database();
+
         Student student = new Student();
         student.setNomer_stud_bilet(nomerStudBilet);
-        database.getConnection();
+
         ResultSet resultSet = database.getNomerStudBilet(student);
 
        if(resultSet.next()) {

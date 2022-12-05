@@ -27,5 +27,8 @@ public class StudentController {
     @FXML
     private Button showAccountingMonthSemester;
 
+    void initialize() {
+    }
+
 }
 

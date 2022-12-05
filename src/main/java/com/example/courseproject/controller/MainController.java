@@ -48,7 +48,7 @@ public class MainController {
             }
             if(prepodRadio.isSelected()) {
                 nextButton.getScene().getWindow().hide();
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("prepodLogin.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("userLogin.fxml"));
                 try {
                     fxmlLoader.load();
                 } catch (IOException e) {

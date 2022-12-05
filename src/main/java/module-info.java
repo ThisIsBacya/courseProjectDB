@@ -16,4 +16,6 @@ module com.example.courseproject {
     opens com.example.courseproject.controller to javafx.fxml;
     exports com.example.courseproject.database;
     opens com.example.courseproject.database to javafx.fxml;
+    exports com.example.courseproject.model;
+    opens com.example.courseproject.model to javafx.fxml;
 }
