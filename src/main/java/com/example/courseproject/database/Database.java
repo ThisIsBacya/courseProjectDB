@@ -95,19 +95,20 @@ public class Database {
 
     }
 
-    public ResultSet getStudentInfo(Student student, Gruppa gruppa) {
+    public ResultSet getStudentInfo(String nomerStudBilet) {
         ResultSet resultSet = null;
-        String select = "SELECT " + Const.STUDENTS_FAM_NAME_OTCH + ", " + Const.GRUPPA_NOMER + " FROM " + Const.STUDENTS_TABLE
-                + " INNER JOIN " + Const.GRUPPA_TABLE + " ON " + Const.STUDENTS_GRUPPAID + " = " + Const.GRUPPA_ID;
+        Student student = new Student();
+        String select = "SELECT * FROM " + Const.STUDENTS_TABLE + " WHERE " + Const.STUDENTS_STUDBILET + " = '" + nomerStudBilet + "'";
         try {
             PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
-            preparedStatement.executeQuery();
-
-
+            resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            System.out.println(resultSet.getString("fam_name_otch"));
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println(select);
         return resultSet;
     }
 }

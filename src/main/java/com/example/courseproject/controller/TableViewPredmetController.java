@@ -33,6 +33,7 @@ public class TableViewPredmetController {
         predmet_idColumn.setCellValueFactory(new PropertyValueFactory<>("predmet_id"));
         nazv_predmetaColumn.setCellValueFactory(new PropertyValueFactory<>("nazv_predmeta"));
         chasiColumn.setCellValueFactory(new PropertyValueFactory<>("chasi"));
+        tableViewPredmet.setItems(observableList);
     }
 
     private void showData() {

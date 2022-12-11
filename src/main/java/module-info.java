@@ -9,6 +9,7 @@ module com.example.courseproject {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires org.postgresql.jdbc;
+    requires com.jfoenix;
 
     opens com.example.courseproject to javafx.fxml;
     exports com.example.courseproject;

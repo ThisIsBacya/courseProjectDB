@@ -50,7 +50,7 @@ public class AdminController {
             Stage stage = new Stage();
             Parent root = fxmlLoader.getRoot();
             stage.setScene(new Scene(root));
-            stage.setTitle("Таблица Студенты");
+            stage.setTitle("Таблица Профиль");
             stage.showAndWait();
         });
         showTableViewGruppa.setOnAction(actionEvent -> {

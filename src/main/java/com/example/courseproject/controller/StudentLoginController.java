@@ -54,7 +54,6 @@ public class StudentLoginController {
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
-        database.getConnection();
         nextButtonId.setOnAction(actionEvent -> {
             String nomerStudBilet = inputTextId.getText().trim();
             if (!nomerStudBilet.equals("")) {
@@ -67,8 +66,8 @@ public class StudentLoginController {
         });
     }
 
-    private void loginStudent(String nomerStudBilet) throws SQLException, ClassNotFoundException {
-
+    public void loginStudent(String nomerStudBilet) throws SQLException, ClassNotFoundException {
+        database.getConnection();
         Student student = new Student();
         student.setNomer_stud_bilet(nomerStudBilet);
 
@@ -77,6 +76,7 @@ public class StudentLoginController {
        if(resultSet.next()) {
            nextButtonId.getScene().getWindow().hide();
            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("student.fxml"));
+           database.getStudentInfo(student.getNomer_stud_bilet());
            try {
                fxmlLoader.load();
            } catch (IOException e) {

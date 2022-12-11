@@ -2,20 +2,25 @@ package com.example.courseproject.model;
 
 public class Gruppa {
 
-    private String gruppa_id;
+    private int gruppa_id;
     private String gruppa_nomer;
-    private String god_postuplenia;
-    private String profile_id;
+    private int god_postuplenia;
+    private int profile_id;
     private String forma_obuchenia;
 
     public Gruppa(int gruppa_id, String gruppa_nomer, int god_postuplenia, int profile_id, String forma_obuchenia) {
+        this.gruppa_id = gruppa_id;
+        this.gruppa_nomer = gruppa_nomer;
+        this.god_postuplenia = god_postuplenia;
+        this.profile_id = profile_id;
+        this.forma_obuchenia = forma_obuchenia;
     }
 
-    public String getGruppa_id() {
+    public int getGruppa_id() {
         return gruppa_id;
     }
 
-    public void setGruppa_id(String gruppa_id) {
+    public void setGruppa_id(int gruppa_id) {
         this.gruppa_id = gruppa_id;
     }
     public String getGruppa_nomer() {
@@ -26,19 +31,19 @@ public class Gruppa {
         this.gruppa_nomer = gruppa_nomer;
     }
 
-    public String getGod_postuplenia() {
+    public int getGod_postuplenia() {
         return god_postuplenia;
     }
 
-    public void setGod_postuplenia(String god_postuplenia) {
+    public void setGod_postuplenia(int god_postuplenia) {
         this.god_postuplenia = god_postuplenia;
     }
 
-    public String getProfile_id() {
+    public int getProfile_id() {
         return profile_id;
     }
 
-    public void setProfile_id(String profile_id) {
+    public void setProfile_id(int profile_id) {
         this.profile_id = profile_id;
     }
 

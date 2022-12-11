@@ -2,6 +2,7 @@ package com.example.courseproject.controller;
 
 import com.example.courseproject.database.Database;
 import com.example.courseproject.model.Profile;
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,6 +23,15 @@ public class TableViewProfileController {
     @FXML
     private TableColumn<Profile, String> nazvanie_profilaColumn;
 
+    @FXML
+    private JFXButton addProfile;
+
+    @FXML
+    private JFXButton deleteProfile;
+
+    @FXML
+    private JFXButton update;
+
     ObservableList<Profile> observableList = FXCollections.observableArrayList();
 
     Database database = new Database();
@@ -29,7 +39,6 @@ public class TableViewProfileController {
     @FXML
     void initialize() {
         showData();
-
         profile_idColumn.setCellValueFactory(new PropertyValueFactory<>("profile_id"));
         nazvanie_profilaColumn.setCellValueFactory(new PropertyValueFactory<>("nazvanie_profila"));
         tableViewProfile.setItems(observableList);
@@ -38,7 +47,7 @@ public class TableViewProfileController {
     private void showData() {
         try {
             Connection connection = database.getConnection();
-            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM profile");
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM profile ORDER BY profile_id ASC");
             while (resultSet.next()) {
                 observableList.add(new Profile(resultSet.getInt("profile_id"), resultSet.getString("nazvanie_profila")));
             }

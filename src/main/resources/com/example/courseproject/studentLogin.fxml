@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="291.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.StudentLoginController">
@@ -19,15 +19,15 @@
                         <Font name="Bodoni MT" size="18.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="backToPrev" fitHeight="36.0" fitWidth="45.0" layoutY="7.0" onMouseClicked="#backToPrev" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../61022.png" />
-                     </image>
-                  </ImageView>
+                  <HBox layoutX="7.0" prefHeight="43.0" prefWidth="51.0">
+                     <children>
+                        <FontAwesomeIconView glyphName="ARROW-LEFT" />
+                     </children>
+                  </HBox>
                </children>
             </AnchorPane>
             <TextField fx:id="inputTextId" layoutX="156.0" layoutY="157.0" prefHeight="43.0" prefWidth="274.0" promptText="Введите номер студ билета" />
-            <Button fx:id="nextButtonId" layoutX="156.0" layoutY="224.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="274.0" text="Перейти дальше" />
+            <JFXButton fx:id="nextButtonId" layoutX="212.0" layoutY="217.0" prefHeight="35.0" prefWidth="162.0" style="-fx-background-color: #8E24AA;" text="Перейти дальше" />
          </children>
       </AnchorPane>
    </children>

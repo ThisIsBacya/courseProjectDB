@@ -16,16 +16,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TableViewGruppaController {
+
     @FXML
     private TableView<Gruppa> tableViewGruppa;
+
     @FXML
     private TableColumn<Gruppa, Integer> gruppaIdColumn;
+
     @FXML
     private TableColumn<Gruppa, String> gruppaNomerColumn;
+
     @FXML
     private TableColumn<Gruppa, Integer> godPostupleniaColumn;
+
     @FXML
     private TableColumn<Gruppa, Integer> profileIdColumn;
+
     @FXML
     private TableColumn<Gruppa, String> formaObucheniaColumn;
 
@@ -53,9 +59,9 @@ public class TableViewGruppaController {
                 observableList.add(new Gruppa(resultSet.getInt("gruppa_id"), resultSet.getString("gruppa_nomer"),
                         resultSet.getInt("god_postuplenia"), resultSet.getInt("profile_id"), resultSet.getString("forma_obuchenia")));
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        }
+        catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
-
         }
     }
 }
