@@ -12,6 +12,15 @@ public class Predmet {
         this.chasi = chasi;
     }
 
+    public Predmet(String nazvPredmeta, int chasi) {
+        this.nazv_predmeta = nazvPredmeta;
+        this.chasi = chasi;
+    }
+
+    public Predmet(int idPredmet) {
+        this.predmet_id = idPredmet;
+    }
+
     public int getPredmet_id() {
         return predmet_id;
     }

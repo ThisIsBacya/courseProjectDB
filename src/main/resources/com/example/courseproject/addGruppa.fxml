@@ -8,24 +8,28 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="291.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.AddStudentController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="291.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.AddGruppaController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="314.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Добавить студента" wrappingWidth="289.0546875">
+            <Text strokeWidth="0.0" text="Добавить группу" wrappingWidth="249.0546875">
                <font>
                   <Font name="Kristen ITC" size="32.0" />
                </font>
+               <HBox.margin>
+                  <Insets left="18.0" />
+               </HBox.margin>
             </Text>
          </children>
       </HBox>
       <HBox>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ФИО" wrappingWidth="124.98307228088379">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Номер группы" wrappingWidth="124.98307228088379">
                <font>
                   <Font name="Kristen ITC" size="13.0" />
-               </font></Text>
-            <TextField fx:id="fioField" prefHeight="8.0" prefWidth="152.0" />
+               </font>
+            </Text>
+            <TextField fx:id="gruppaNomerField" prefHeight="25.0" prefWidth="149.0" />
          </children>
          <VBox.margin>
             <Insets top="15.0" />
@@ -33,12 +37,12 @@
       </HBox>
       <HBox>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id группы" wrappingWidth="124.98307228088379">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Год поступления" wrappingWidth="124.98307228088379">
                <font>
                   <Font name="Kristen ITC" size="13.0" />
                </font>
             </Text>
-            <TextField fx:id="gruppaIdField" />
+            <TextField fx:id="godPostupleniaField" />
          </children>
          <VBox.margin>
             <Insets top="15.0" />
@@ -46,12 +50,12 @@
       </HBox>
       <HBox>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Номер студ билета" wrappingWidth="124.98307228088379">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id профиля" wrappingWidth="124.98307228088379">
                <font>
                   <Font name="Kristen ITC" size="13.0" />
                </font>
             </Text>
-            <TextField fx:id="nomerStudBiletField" />
+            <TextField fx:id="profileIdField" />
          </children>
          <VBox.margin>
             <Insets top="15.0" />
@@ -59,12 +63,12 @@
       </HBox>
       <HBox>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Курс" wrappingWidth="124.98307228088379">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Форма обучения" wrappingWidth="124.98307228088379">
                <font>
                   <Font name="Kristen ITC" size="13.0" />
                </font>
             </Text>
-            <TextField fx:id="kursField" />
+            <TextField fx:id="formaObucheniaField" />
          </children>
          <VBox.margin>
             <Insets bottom="15.0" top="15.0" />

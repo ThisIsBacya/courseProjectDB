@@ -7,6 +7,15 @@ public class Profile {
         this.profile_id = profile_id;
         this.nazvanie_profila = nazvanie_profila;
     }
+
+    public Profile(String nazvanie_profila) {
+        this.nazvanie_profila = nazvanie_profila;
+    }
+
+    public Profile(int idProfile) {
+        this.profile_id = idProfile;
+    }
+
     public String getNazvanie_profila() {
         return nazvanie_profila;
     }

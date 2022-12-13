@@ -15,8 +15,19 @@ public class Student {
         this.kurs = kurs;
     }
 
+    public Student(String fam_name_otch, int gruppa_id, String nomer_stud_bilet, int kurs) {
+        this.fam_name_otch = fam_name_otch;
+        this.gruppa_id = gruppa_id;
+        this.nomer_stud_bilet = nomer_stud_bilet;
+        this.kurs = kurs;
+    }
+
     public Student() {
 
+    }
+
+    public Student(int idStudent) {
+        this.students_id = idStudent;
     }
 
     public String getFam_name_otch() {

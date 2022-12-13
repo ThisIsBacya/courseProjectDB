@@ -97,6 +97,31 @@ public class TableViewStudentsController {
             stage.setTitle("Добавить студента");
             stage.showAndWait();
         });
+        update.setOnAction(actionEvent -> {
+            observableList.clear();
+            try {
+                ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM students");
+                while (resultSet.next()) {
+                    observableList.add(new Student(resultSet.getInt("students_id"), resultSet.getString("fam_name_otch"),
+                            resultSet.getInt("gruppa_id"), resultSet.getString("nomer_stud_bilet"), resultSet.getInt("kurs")));
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            };
+        });
+        delete.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("deleteStudent.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Удалить студента");
+            stage.showAndWait();
+        });
     }
 
     private void showData() {

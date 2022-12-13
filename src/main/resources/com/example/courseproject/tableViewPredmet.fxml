@@ -24,7 +24,7 @@
                </font>
             </Label>
             <JFXButton fx:id="addPredmet" layoutX="331.0" layoutY="116.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Добавить" />
-            <JFXButton fx:id="deleteProfile" layoutX="333.0" layoutY="222.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Удалить" />
+            <JFXButton fx:id="deletePredmet" layoutX="333.0" layoutY="222.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Удалить" />
             <JFXButton fx:id="update" layoutX="333.0" layoutY="170.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Обновить" />
          </children>
       </AnchorPane>

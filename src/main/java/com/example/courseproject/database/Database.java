@@ -1,8 +1,6 @@
 package com.example.courseproject.database;
 
-import com.example.courseproject.model.Gruppa;
-import com.example.courseproject.model.Student;
-import com.example.courseproject.model.User;
+import com.example.courseproject.model.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -82,6 +80,37 @@ public class Database {
         }
     }
 
+    public void addProfile(Profile profile) {
+        String insert = "INSERT INTO " + Const.PROFILE_TABLE + "(" + Const.PROFILE_NAZVANIE_PROFILA + ")"
+                + "VALUES (?)";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(insert);
+            preparedStatement.setString(1, profile.getNazvanie_profila());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void addPredmet(Predmet predmet) {
+        String insert = "INSERT INTO " + Const.PREDMET_TABLE + "(" + Const.PREDMET_NAZV_PREDMETA + "," + Const.PREDMET_CHASI + ")"
+                + "VALUES (?, ?)";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(insert);
+            preparedStatement.setString(1, predmet.getNazv_predmeta());
+            preparedStatement.setInt(2, predmet.getChasi());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void removeStudent(Student student) {
         String delete = "DELETE FROM " + Const.STUDENTS_TABLE + " WHERE " + Const.STUDENTS_ID + " =?";
 
@@ -92,7 +121,42 @@ public class Database {
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    public void removeGruppa(Gruppa gruppa) {
+        String delete = "DELETE FROM " + Const.GRUPPA_TABLE + " WHERE " + Const.GRUPPA_ID + "=?";
+
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(delete);
+            preparedStatement.setInt(1, gruppa.getGruppa_id());
+            preparedStatement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void removeProfile(Profile profile) {
+        String delete = "DELETE FROM " + Const.PROFILE_TABLE + " WHERE " + Const.PROFILE_ID + "=?";
+
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(delete);
+            preparedStatement.setInt(1, profile.getProfile_id());
+            preparedStatement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void removePredmet(Predmet predmet) {
+        String delete = "DELETE FROM " + Const.PREDMET_TABLE + " WHERE " + Const.PREDMET_ID + "=?";
+
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(delete);
+            preparedStatement.setInt(1, predmet.getPredmet_id());
+            preparedStatement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public ResultSet getStudentInfo(String nomerStudBilet) {
@@ -111,5 +175,24 @@ public class Database {
         System.out.println(select);
         return resultSet;
     }
-}
 
+    public void addGruppa(Gruppa gruppa) {
+        String insert = "INSERT INTO " + Const.GRUPPA_TABLE + "(" + Const.GRUPPA_NOMER + "," +
+                Const.GRUPPA_GOD_POSTUPLENIA + "," + Const.GRUPPA_PROFILE_ID + "," + Const.GRUPPA_FORMA_OBUCHENIA + ")" +
+                "VALUES(?,?,?,?)";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(insert);
+            preparedStatement.setString(1, gruppa.getGruppa_nomer());
+            preparedStatement.setInt(2, gruppa.getGod_postuplenia());
+            preparedStatement.setInt(3, gruppa.getProfile_id());
+            preparedStatement.setString(4, gruppa.getForma_obuchenia());
+
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

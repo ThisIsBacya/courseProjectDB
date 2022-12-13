@@ -16,6 +16,17 @@ public class Gruppa {
         this.forma_obuchenia = forma_obuchenia;
     }
 
+    public Gruppa(String gruppaNomer, int profileId, int gopPostuplenia, String formaObuchenia) {
+        this.gruppa_nomer = gruppaNomer;
+        this.profile_id = profileId;
+        this.god_postuplenia = gopPostuplenia;
+        this.forma_obuchenia = formaObuchenia;
+    }
+
+    public Gruppa(int idGruppa) {
+        this.gruppa_id = idGruppa;
+    }
+
     public int getGruppa_id() {
         return gruppa_id;
     }

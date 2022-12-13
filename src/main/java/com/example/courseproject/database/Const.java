@@ -5,7 +5,7 @@ public class Const {
     public static final String STUDENTS_TABLE = "students";
 
     public static final String STUDENTS_ID = "students_id";
-    public static final String STUDENTS_FAM_NAME_OTCH = "fame_name_otch";
+    public static final String STUDENTS_FAM_NAME_OTCH = "fam_name_otch";
     public static final String STUDENTS_GRUPPAID = "gruppa_id";
     public static final String STUDENTS_STUDBILET = "nomer_stud_bilet";
     public static final String STUDENTS_KURS = "kurs";
