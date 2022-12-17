@@ -29,5 +29,4 @@ public class AddProfileController {
             System.out.println("Профиль добавлен!");
         });
     }
-
 }

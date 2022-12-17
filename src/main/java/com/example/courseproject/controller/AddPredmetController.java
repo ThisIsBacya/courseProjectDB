@@ -35,5 +35,4 @@ public class AddPredmetController {
             System.out.println("Предмет добавлен");
         });
     }
-
 }

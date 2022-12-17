@@ -25,8 +25,13 @@ public class AdminController {
     private Button showTableViewPredmet;
 
     @FXML
+    private Button showTableViewPoseshaemost;
+
+
+    @FXML
     void initialize() {
         showTableViewStudents.setOnAction(actionEvent -> {
+
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tableViewStudents.fxml"));
             try {
                 fxmlLoader.load();
@@ -78,6 +83,19 @@ public class AdminController {
             Parent root = fxmlLoader.getRoot();
             stage.setScene(new Scene(root));
             stage.setTitle("Таблица Предметы");
+            stage.showAndWait();
+        });
+        showTableViewPoseshaemost.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tableViewPoseshaemost.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Таблица Посещаемость");
             stage.showAndWait();
         });
     }

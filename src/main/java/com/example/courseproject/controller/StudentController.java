@@ -45,6 +45,4 @@ public class StudentController {
         database.getConnection();
         LabelStudentFIO.setText(student.getFam_name_otch());
     }
-
 }
-

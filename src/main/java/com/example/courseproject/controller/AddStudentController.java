@@ -35,7 +35,6 @@ public class AddStudentController {
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
-
         database.getConnection();
         addButton.setOnAction(actionEvent -> {
             String FIO = fioField.getText();
@@ -51,7 +50,6 @@ public class AddStudentController {
                 }
             }));
             System.out.println("Студент добавлен");
-
         });
     }
 }

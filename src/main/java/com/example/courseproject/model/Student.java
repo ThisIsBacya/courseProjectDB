@@ -68,6 +68,4 @@ public class Student {
     public void setStudents_id(int students_id) {
         this.students_id = students_id;
     }
-
-
 }

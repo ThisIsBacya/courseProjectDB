@@ -1,12 +1,14 @@
 package com.example.courseproject.database;
 
 import com.example.courseproject.model.*;
+import javafx.geometry.Pos;
+import org.postgresql.util.MD5Digest;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
+import java.security.cert.CertificateParsingException;
+import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Database {
     private final static String DB_URL = "jdbc:postgresql://172.20.8.18/kp0091_06";
@@ -97,7 +99,7 @@ public class Database {
 
     public void addPredmet(Predmet predmet) {
         String insert = "INSERT INTO " + Const.PREDMET_TABLE + "(" + Const.PREDMET_NAZV_PREDMETA + "," + Const.PREDMET_CHASI + ")"
-                + "VALUES (?, ?)";
+                + "VALUES (?,?)";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(insert);
             preparedStatement.setString(1, predmet.getNazv_predmeta());
@@ -107,6 +109,43 @@ public class Database {
         catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void addGruppa(Gruppa gruppa) {
+        String insert = "INSERT INTO " + Const.GRUPPA_TABLE + "(" + Const.GRUPPA_NOMER + "," +
+                Const.GRUPPA_GOD_POSTUPLENIA + "," + Const.GRUPPA_PROFILE_ID + "," + Const.GRUPPA_FORMA_OBUCHENIA + ")" +
+                "VALUES(?,?,?,?)";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(insert);
+            preparedStatement.setString(1, gruppa.getGruppa_nomer());
+            preparedStatement.setInt(2, gruppa.getGod_postuplenia());
+            preparedStatement.setInt(3, gruppa.getProfile_id());
+            preparedStatement.setString(4, gruppa.getForma_obuchenia());
+
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void addPoseshaemost(Poseshaemost poseshaemost) {
+        String insert = "INSERT INTO " + Const.POSESHAEMOST_TABLE + "(" + Const.POSESHAEMOST_DATA + "," + Const.POSESHAEMOST_STUDENTS_ID + "," +
+            Const.PREDMET_ID + "," + Const.POSESHAEMOST_CHASI_PROPUSKA + "," + Const.POSESHAEMOST_TYPE + ")" + "VALUES (?,?,?,?,?)";
+        try {
+//            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+//            format.parse(Const.POSESHAEMOST_DATA);
+            PreparedStatement preparedStatement = getConnection().prepareStatement(insert);
+            preparedStatement.setDate(1, poseshaemost.getData());
+            preparedStatement.setInt(2, poseshaemost.getStudents_id());
+            preparedStatement.setInt(3, poseshaemost.getPredmet_id());
+            preparedStatement.setInt(4, poseshaemost.getChasi_propuska());
+            preparedStatement.setString(5, poseshaemost.getType());
+            preparedStatement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
@@ -159,6 +198,9 @@ public class Database {
         }
     }
 
+
+
+
     public ResultSet getStudentInfo(String nomerStudBilet) {
         ResultSet resultSet = null;
         Student student = new Student();
@@ -174,25 +216,5 @@ public class Database {
         }
         System.out.println(select);
         return resultSet;
-    }
-
-    public void addGruppa(Gruppa gruppa) {
-        String insert = "INSERT INTO " + Const.GRUPPA_TABLE + "(" + Const.GRUPPA_NOMER + "," +
-                Const.GRUPPA_GOD_POSTUPLENIA + "," + Const.GRUPPA_PROFILE_ID + "," + Const.GRUPPA_FORMA_OBUCHENIA + ")" +
-                "VALUES(?,?,?,?)";
-        try {
-            PreparedStatement preparedStatement = getConnection().prepareStatement(insert);
-            preparedStatement.setString(1, gruppa.getGruppa_nomer());
-            preparedStatement.setInt(2, gruppa.getGod_postuplenia());
-            preparedStatement.setInt(3, gruppa.getProfile_id());
-            preparedStatement.setString(4, gruppa.getForma_obuchenia());
-
-            preparedStatement.executeUpdate();
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

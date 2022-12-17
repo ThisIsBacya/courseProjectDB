@@ -10,9 +10,10 @@
             <AnchorPane prefHeight="494.0" prefWidth="352.0" style="-fx-background-color: #FF6347;">
                <children>
                   <Button fx:id="showTableViewStudents" layoutX="73.0" layoutY="72.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" text="Показать таблицу Студенты" />
-                  <Button fx:id="showTableViewProfile" layoutX="73.0" layoutY="190.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" text="Показать таблицу Профиль" />
+                  <Button fx:id="showTableViewProfile" layoutX="76.0" layoutY="187.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" text="Показать таблицу Профиль" />
                   <Button fx:id="showTableViewGruppa" layoutX="73.0" layoutY="127.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" text="Показать таблицу Группа" />
                   <Button fx:id="showTableViewPredmet" layoutX="76.0" layoutY="247.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" text="Показать таблицу Предметы" />
+                  <Button fx:id="showTableViewPoseshaemost" layoutX="76.0" layoutY="302.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="200.0" text="Показать Отчет о посещаемости" />
                </children></AnchorPane>
          </children>
       </AnchorPane>

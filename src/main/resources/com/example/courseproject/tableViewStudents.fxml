@@ -27,9 +27,9 @@
                   <Font name="Kristen ITC" size="20.0" />
                </font>
             </Label>
-            <JFXButton fx:id="addStudent" layoutX="627.0" layoutY="120.0" prefHeight="33.0" prefWidth="150.0" text="Добавить студента" />
-            <JFXButton fx:id="delete" layoutX="627.0" layoutY="229.0" prefHeight="33.0" prefWidth="104.0" text="Удалить" />
-            <JFXButton fx:id="update" layoutX="627.0" layoutY="174.0" prefHeight="33.0" prefWidth="104.0" text="Обновить" />
+            <JFXButton fx:id="addStudent" layoutX="627.0" layoutY="120.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Добавить студента" />
+            <JFXButton fx:id="delete" layoutX="627.0" layoutY="229.0" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: #2196F3;" text="Удалить" />
+            <JFXButton fx:id="update" layoutX="627.0" layoutY="174.0" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: #2196F3;" text="Обновить" />
             </children>
         </AnchorPane>
     </children>

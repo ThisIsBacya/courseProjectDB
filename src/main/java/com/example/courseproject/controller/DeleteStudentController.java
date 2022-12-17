@@ -31,5 +31,4 @@ public class DeleteStudentController {
             System.out.println("Студент удален");
         });
     }
-
 }

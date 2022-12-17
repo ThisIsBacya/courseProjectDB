@@ -31,5 +31,4 @@ public class DeleteGruppaController {
             System.out.println("Группа удалена!");
         });
     }
-
 }
