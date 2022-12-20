@@ -25,4 +25,6 @@ module com.example.courseproject {
     opens com.example.courseproject.controller.tableView to javafx.fxml;
     exports com.example.courseproject.controller.addAndDelete;
     opens com.example.courseproject.controller.addAndDelete to javafx.fxml;
+    exports com.example.courseproject.controller.otchet;
+    opens com.example.courseproject.controller.otchet to javafx.fxml;
 }

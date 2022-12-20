@@ -21,8 +21,6 @@ public class Otchet {
         this.type = type;
     }
 
-//    public Otchet(String fio, Date data, )
-
     public String getFam_name_otch() {
         return fam_name_otch;
     }

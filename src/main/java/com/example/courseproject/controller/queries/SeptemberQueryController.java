@@ -51,6 +51,7 @@ public class SeptemberQueryController {
                     "WHERE data > '2022-09-01';");
             while (resultSet.next()) {
                 observableList.add(new Queries(resultSet.getString("fam_name_otch"), resultSet.getString("nazv_predmeta"), resultSet.getDate("data")));
+                System.out.println(observableList);
             }
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);

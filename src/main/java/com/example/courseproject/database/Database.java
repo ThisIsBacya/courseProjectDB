@@ -203,11 +203,21 @@ public class Database {
         return list;
     }
 
-    public void getSpecOtchetSemestr() throws SQLException {
-
+    public List<String> getGruppa() throws SQLException {
         List<String> list = new ArrayList<>();
         Statement statement = dbConnection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * from getotchetfromsemestrforspec");
+        ResultSet resultSet = statement.executeQuery("SELECT gruppa_nomer FROM gruppa");
+        while (resultSet.next()) {
+            list.add(resultSet.getString(1));
+        }
+        return list;
+    }
+
+    public List<Otchet> getSpecPovtOtchetSemestr() throws SQLException {
+
+        List<Otchet> list = new ArrayList<>();
+        Statement statement = dbConnection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * from getotchetfromsemestrforspecpovt");
         while (resultSet.next()) {
             String fam_name_otch = resultSet.getString(1);
             Date data = resultSet.getDate(2);
@@ -216,9 +226,27 @@ public class Database {
             String gruppa_nomer = resultSet.getString(5);
             String nazvanie_profila = resultSet.getString(6);
             String type = resultSet.getString(7);
-            list.add(String.valueOf(new Otchet(fam_name_otch, data, nazv_predmeta, kurs, gruppa_nomer, nazvanie_profila, type)));
+            list.add(new Otchet(fam_name_otch, data, nazv_predmeta, kurs, gruppa_nomer, nazvanie_profila, type));
         }
-//        System.out.println(list.get());
+        return list;
+    }
+
+    public List<Otchet> getSpecAndroidOtchetSemestr() throws SQLException {
+
+        List<Otchet> list = new ArrayList<>();
+        Statement statement = dbConnection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * from getotchetfromsemestrforspecmobile");
+        while (resultSet.next()) {
+            String fam_name_otch = resultSet.getString(1);
+            Date data = resultSet.getDate(2);
+            String nazv_predmeta = resultSet.getString(3);
+            int kurs = resultSet.getInt(4);
+            String gruppa_nomer = resultSet.getString(5);
+            String nazvanie_profila = resultSet.getString(6);
+            String type = resultSet.getString(7);
+            list.add(new Otchet(fam_name_otch, data, nazv_predmeta, kurs, gruppa_nomer, nazvanie_profila, type));
+        }
+        return list;
     }
 
 
