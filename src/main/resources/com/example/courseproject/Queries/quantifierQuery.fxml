@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="423.0" prefWidth="331.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.queries.QuantifierQueryController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="384.0">
+         <children>
+            <TableView fx:id="tableViewQuery" layoutX="-10.0" layoutY="-10.0" prefHeight="423.0" prefWidth="466.0">
+               <columns>
+                  <TableColumn fx:id="idColumn" prefWidth="78.0" text="Id студента" />
+                  <TableColumn fx:id="fioColumn" minWidth="7.0" prefWidth="128.0" text="ФИО" />
+                  <TableColumn fx:id="nomerStudBiletColumn" minWidth="7.0" prefWidth="194.0" text="Номер студенческого билета" />
+                  <TableColumn fx:id="kursColumn" minWidth="7.0" prefWidth="65.0" text="Курс" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

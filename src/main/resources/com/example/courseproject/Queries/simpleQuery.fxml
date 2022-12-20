@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="567.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.queries.SimpleQueryController">
+   <children>
+      <TableView fx:id="tableViewQuery" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="567.0">
+         <columns>
+            <TableColumn fx:id="queryIdColumn" prefWidth="75.0" text="Id" />
+            <TableColumn fx:id="querydDatePropuskColumn" prefWidth="105.0" text="Дата пропуска" />
+            <TableColumn fx:id="queryStudentsIdColumn" prefWidth="74.0" text="Id студента" />
+            <TableColumn fx:id="queryPredmetIdColumn" prefWidth="115.0" text="Id предмета" />
+            <TableColumn fx:id="queryChasiColumn" prefWidth="100.0" text="Часы пропуска" />
+            <TableColumn fx:id="queryTypeColumn" prefWidth="96.0" text="Тип пропуска" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

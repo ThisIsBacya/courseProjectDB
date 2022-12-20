@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.tableView.TableViewGruppaController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="755.0" style="-fx-background-color: #EF6C00;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="227.0" text="Таблица Группа">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableViewGruppa" layoutX="14.0" layoutY="69.0" prefHeight="317.0" prefWidth="568.0">
+              <columns>
+                <TableColumn fx:id="gruppaIdColumn" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="gruppaNomerColumn" prefWidth="105.0" text="Номер группы" />
+                  <TableColumn fx:id="godPostupleniaColumn" prefWidth="114.0" text="Год поступления" />
+                  <TableColumn fx:id="profileIdColumn" prefWidth="75.0" text="Id профиля" />
+                  <TableColumn fx:id="formaObucheniaColumn" prefWidth="109.0" text="Форма обучения" />
+              </columns>
+            </TableView>
+            <JFXButton fx:id="addGruppa" layoutX="606.0" layoutY="117.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Добавить" />
+            <JFXButton fx:id="deleteGruppa" layoutX="608.0" layoutY="223.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Удалить" />
+            <JFXButton fx:id="update" layoutX="608.0" layoutY="171.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Обновить" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

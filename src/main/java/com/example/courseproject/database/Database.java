@@ -1,14 +1,12 @@
 package com.example.courseproject.database;
 
 import com.example.courseproject.model.*;
-import javafx.geometry.Pos;
-import org.postgresql.util.MD5Digest;
+import javafx.collections.ObservableList;
 
-import java.security.cert.CertificateParsingException;
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.sql.Date;
+import java.util.List;
 
 public class Database {
     private final static String DB_URL = "jdbc:postgresql://172.20.8.18/kp0091_06";
@@ -72,7 +70,6 @@ public class Database {
             preparedStatement.setInt(2, student.getGruppa_id());
             preparedStatement.setString(3, student.getNomer_stud_bilet());
             preparedStatement.setInt(4, student.getKurs());
-
             preparedStatement.executeUpdate();
         }
         catch (SQLException e) {
@@ -136,8 +133,6 @@ public class Database {
         String insert = "INSERT INTO " + Const.POSESHAEMOST_TABLE + "(" + Const.POSESHAEMOST_DATA + "," + Const.POSESHAEMOST_STUDENTS_ID + "," +
             Const.PREDMET_ID + "," + Const.POSESHAEMOST_CHASI_PROPUSKA + "," + Const.POSESHAEMOST_TYPE + ")" + "VALUES (?,?,?,?,?)";
         try {
-//            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-//            format.parse(Const.POSESHAEMOST_DATA);
             PreparedStatement preparedStatement = getConnection().prepareStatement(insert);
             preparedStatement.setDate(1, poseshaemost.getData());
             preparedStatement.setInt(2, poseshaemost.getStudents_id());
@@ -198,23 +193,51 @@ public class Database {
         }
     }
 
-
-
-
-    public ResultSet getStudentInfo(String nomerStudBilet) {
-        ResultSet resultSet = null;
-        Student student = new Student();
-        String select = "SELECT * FROM " + Const.STUDENTS_TABLE + " WHERE " + Const.STUDENTS_STUDBILET + " = '" + nomerStudBilet + "'";
-        try {
-            PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
-            resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            System.out.println(resultSet.getString("fam_name_otch"));
+    public List<String> getNazvProfile() throws SQLException {
+        List<String> list = new ArrayList<>();
+        Statement statement = dbConnection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT nazvanie_profila FROM profile");
+        while (resultSet.next()) {
+            list.add(resultSet.getString(1));
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        System.out.println(select);
-        return resultSet;
+        return list;
     }
+
+    public void getSpecOtchetSemestr() throws SQLException {
+
+        List<String> list = new ArrayList<>();
+        Statement statement = dbConnection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * from getotchetfromsemestrforspec");
+        while (resultSet.next()) {
+            String fam_name_otch = resultSet.getString(1);
+            Date data = resultSet.getDate(2);
+            String nazv_predmeta = resultSet.getString(3);
+            int kurs = resultSet.getInt(4);
+            String gruppa_nomer = resultSet.getString(5);
+            String nazvanie_profila = resultSet.getString(6);
+            String type = resultSet.getString(7);
+            list.add(String.valueOf(new Otchet(fam_name_otch, data, nazv_predmeta, kurs, gruppa_nomer, nazvanie_profila, type)));
+        }
+//        System.out.println(list.get());
+    }
+
+
+//
+//
+//    public ResultSet getStudentInfo(String nomerStudBilet) {
+//        ResultSet resultSet = null;
+//        Student student = new Student();
+//        String select = "SELECT * FROM " + Const.STUDENTS_TABLE + " WHERE " + Const.STUDENTS_STUDBILET + " = '" + nomerStudBilet + "'";
+//        try {
+//            PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
+//            resultSet = preparedStatement.executeQuery();
+//            resultSet.next();
+//            System.out.println(resultSet.getString("fam_name_otch"));
+//        }
+//        catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(select);
+//        return resultSet;
+//    }
 }

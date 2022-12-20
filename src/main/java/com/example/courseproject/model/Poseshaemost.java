@@ -12,15 +12,6 @@ public class Poseshaemost {
     private int chasi_propuska;
     private String type;
 
-
-//    public Poseshaemost(String date, int studentId, int predmetId, int chasiPropusk, JFXComboBox<String> comboBoxType) {
-//        this.data = Date.valueOf(date);
-//        this.students_id = studentId;
-//        this.predmet_id = predmetId;
-//        this.chasi_propuska = chasiPropusk;
-//        this.type = String.valueOf(comboBoxType);
-//    }
-
     public Poseshaemost(int poseshaemost_id, Date data, int students_id, int predmet_id, int chasi_propuska, String type) {
         this.poseshaemost_id = poseshaemost_id;
         this.data = data;

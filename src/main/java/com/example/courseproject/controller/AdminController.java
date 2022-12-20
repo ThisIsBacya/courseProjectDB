@@ -1,38 +1,70 @@
 package com.example.courseproject.controller;
 
 import com.example.courseproject.HelloApplication;
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+    public class AdminController {
 
-public class AdminController {
+        @FXML
+        private MenuItem aggregateQuery;
 
-    @FXML
-    private Button showTableViewStudents;
+        @FXML
+        private MenuItem conditionalQuery;
 
-    @FXML
-    private Button showTableViewProfile;
+        @FXML
+        private MenuItem crossQuery;
 
-    @FXML
-    private Button showTableViewGruppa;
+        @FXML
+        private MenuItem multiTableQuery;
 
-    @FXML
-    private Button showTableViewPredmet;
 
-    @FXML
-    private Button showTableViewPoseshaemost;
+        @FXML
+        private MenuItem gruppa0091Query;
 
+
+        @FXML
+        private MenuItem quantifierQuery;
+
+
+        @FXML
+        private MenuItem septemberQuery;
+
+        @FXML
+        private MenuItem scalarSubquery;
+
+        @FXML
+        private JFXButton showTableViewGruppa;
+
+        @FXML
+        private JFXButton showTableViewPoseshaemost;
+
+        @FXML
+        private JFXButton showTableViewPredmet;
+
+        @FXML
+        private JFXButton showTableViewProfile;
+
+        @FXML
+        private JFXButton showTableViewStudents;
+
+        @FXML
+        private MenuItem tableQuery;
+
+        @FXML
+        private MenuItem unionQuery;
 
     @FXML
     void initialize() {
         showTableViewStudents.setOnAction(actionEvent -> {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tableViewStudents.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/tableViewStudents.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -46,7 +78,7 @@ public class AdminController {
         });
 
         showTableViewProfile.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tableViewProfile.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/tableViewProfile.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -59,7 +91,7 @@ public class AdminController {
             stage.showAndWait();
         });
         showTableViewGruppa.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tableViewGruppa.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/tableViewGruppa.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -72,7 +104,7 @@ public class AdminController {
             stage.showAndWait();
         });
         showTableViewPredmet.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tableViewPredmet.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/tableViewPredmet.fxml"));
             try {
                 fxmlLoader.load();
             }
@@ -86,7 +118,7 @@ public class AdminController {
             stage.showAndWait();
         });
         showTableViewPoseshaemost.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tableViewPoseshaemost.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/tableViewPoseshaemost.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -96,6 +128,126 @@ public class AdminController {
             Parent root = fxmlLoader.getRoot();
             stage.setScene(new Scene(root));
             stage.setTitle("Таблица Посещаемость");
+            stage.showAndWait();
+        });
+        conditionalQuery.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Queries/simpleQuery.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Простой запрос с условием");
+            stage.showAndWait();
+        });
+        scalarSubquery.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Queries/scalarQuery.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Скалярный подзапрос");
+            stage.showAndWait();
+        });
+        tableQuery.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Queries/tableQuery.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Табличный запрос");
+            stage.showAndWait();
+        });
+        quantifierQuery.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Queries/quantifierQuery.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Кванторы");
+            stage.showAndWait();
+        });
+        unionQuery.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Queries/unionQuery.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Объединение");
+            stage.showAndWait();
+        });
+        aggregateQuery.setOnAction(actionEvent -> {
+
+        });
+        multiTableQuery.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Queries/multiTableQuery.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Многотабличный запрос");
+            stage.showAndWait();
+        });
+        septemberQuery.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Queries/septemberQuery.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Пропуски с 1 сентября 2022 года");
+            stage.showAndWait();
+        });
+        crossQuery.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Queries/crossQuery.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Перекрестный запрос");
+            stage.showAndWait();
+        });
+        gruppa0091Query.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Queries/gruppa0091Query.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Пропуск по группе 0091");
             stage.showAndWait();
         });
     }

@@ -1,0 +1,25 @@
+SELECT * FROM  poseshaemost where data between '01-01-2022' and current_date; -- Простой запрос с условием
+
+SELECT data, nazv_predmeta, fam_name_otch, chasi_propuska FROM poseshaemost
+    INNER JOIN predmet on predmet.predmet_id = poseshaemost.predmet_id INNER JOIN students s on s.students_id = poseshaemost.students_id
+                                           group by data, chasi_propuska, nazv_predmeta, fam_name_otch
+                                                                   HAVING chasi_propuska < 4; -- Скалярный подзапрос
+
+SELECT * FROM poseshaemost where type='уважительная'; -- Табличный запрос
+
+SELECT * FROM students WHERE EXISTS(SELECT 1 FROM gruppa WHERE gruppa.gruppa_id = students.gruppa_id); -- Кванторы
+
+SELECT fam_name_otch from students UNION SELECT type FROM poseshaemost; -- Объединение, пересечение, разность
+
+
+SELECT MAX(kurs) FROM students; -- Запросы с  агрегатными функциями, с группировкой данных, с условием для отбора групп
+
+SELECT fam_name_otch, gruppa_nomer FROM students INNER JOIN gruppa g on g.gruppa_id = students.gruppa_id; -- Многотабличные запросы
+
+SELECT nazv_predmeta, data FROM predmet INNER JOIN poseshaemost on predmet.predmet_id = poseshaemost.predmet_id WHERE data > '2022-09-01';
+
+SELECT fam_name_otch, gruppa_nomer, nomer_stud_bilet FROM students CROSS JOIN gruppa; -- Перекрёстный запрос
+
+SELECT fam_name_otch, gruppa_nomer, nazvanie_profila
+FROM students INNER JOIN gruppa on gruppa.gruppa_id = students.gruppa_id
+    INNER JOIN profile on profile.profile_id = gruppa.profile_id;

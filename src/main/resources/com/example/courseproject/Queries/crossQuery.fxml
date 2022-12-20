@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="252.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.queries.CrossQueryController">
+   <children>
+      <TableView fx:id="tableViewQuery" prefHeight="400.0" prefWidth="377.0">
+        <columns>
+            <TableColumn fx:id="fioColumn" prefWidth="121.0" text="ФИО" />
+            <TableColumn fx:id="gruppaNomerColumn" minWidth="7.0" prefWidth="129.0" text="Группа" />
+            <TableColumn fx:id="nomerStudBiletColumn" minWidth="7.0" prefWidth="130.0" text="Номер студ.билета" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

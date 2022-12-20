@@ -19,4 +19,10 @@ module com.example.courseproject {
     opens com.example.courseproject.database to javafx.fxml;
     exports com.example.courseproject.model;
     opens com.example.courseproject.model to javafx.fxml;
+    exports com.example.courseproject.controller.queries;
+    opens com.example.courseproject.controller.queries to javafx.fxml;
+    exports com.example.courseproject.controller.tableView;
+    opens com.example.courseproject.controller.tableView to javafx.fxml;
+    exports com.example.courseproject.controller.addAndDelete;
+    opens com.example.courseproject.controller.addAndDelete to javafx.fxml;
 }

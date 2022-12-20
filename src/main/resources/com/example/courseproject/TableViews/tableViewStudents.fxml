@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="599.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.tableView.TableViewStudentsController">
+    <children>
+        <AnchorPane prefHeight="599.0" prefWidth="790.0" style="-fx-background-color: #EF6C00;">
+            <children>
+                <TableView fx:id="studentsTable" layoutX="14.0" layoutY="94.0" prefHeight="462.0" prefWidth="566.0" style="-fx-border-radius: 10;">
+                    <columns>
+                        <TableColumn fx:id="idColumn" prefWidth="75.0" text="Id" />
+                        <TableColumn fx:id="fioColumn" prefWidth="210.0" text="ФИО" />
+                        <TableColumn fx:id="gruppaIdColumn" prefWidth="75.0" text="Id группы" />
+                        <TableColumn fx:id="nomerStudBiletColumn" prefWidth="131.0" text="Номер студ. билета" />
+                        <TableColumn fx:id="kursColumn" prefWidth="75.0" text="Курс" />
+                    </columns>
+                </TableView>
+            <Pane layoutY="47.0" prefHeight="2.0" prefWidth="790.0" style="-fx-background-color: #212121;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Label layoutX="22.0" layoutY="6.0" prefHeight="40.0" prefWidth="184.0" text="Таблица Студенты">
+               <font>
+                  <Font name="Kristen ITC" size="20.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="addStudent" layoutX="627.0" layoutY="120.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Добавить студента" />
+            <JFXButton fx:id="delete" layoutX="627.0" layoutY="229.0" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: #2196F3;" text="Удалить" />
+            <JFXButton fx:id="update" layoutX="627.0" layoutY="174.0" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: #2196F3;" text="Обновить" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
