@@ -79,7 +79,7 @@ public class TableViewPoseshaemostController {
         tableViewPoseshaemost.setItems(observableList);
 
         addPoseshaemost.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("addOtchet.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/addOtchet.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {

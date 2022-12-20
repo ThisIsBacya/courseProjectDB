@@ -67,7 +67,7 @@ public class TableViewGruppaController {
         tableViewGruppa.setItems(observableList);
 
         addGruppa.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("addGruppa.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/addGruppa.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -94,7 +94,7 @@ public class TableViewGruppaController {
         });
 
         deleteGruppa.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("deleteGruppa.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/deleteGruppa.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {

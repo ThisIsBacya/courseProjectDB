@@ -30,5 +30,8 @@ public class DeleteGruppaController {
             database.removeGruppa(gruppa);
             System.out.println("Группа удалена!");
         });
+        clearButton.setOnAction(actionEvent -> {
+            idGruppaField.setText(null);
+        });
     }
 }

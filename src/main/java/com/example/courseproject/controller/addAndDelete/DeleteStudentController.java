@@ -30,5 +30,6 @@ public class DeleteStudentController {
             database.removeStudent(student);
             System.out.println("Студент удален");
         });
+        idStudentField.setText(null);
     }
 }

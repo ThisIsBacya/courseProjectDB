@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="454.0" prefWidth="799.0" style="-fx-background-color: #EF6C00;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.otchet.SemOtchetForFourthKursController">
+   <children>
+      <TableView fx:id="tableViewOtchetKurs" layoutX="34.0" layoutY="42.0" prefHeight="316.0" prefWidth="633.0">
+         <columns>
+            <TableColumn fx:id="fioColumn" prefWidth="75.0" text="ФИО" />
+            <TableColumn fx:id="datePropuskColumn" prefWidth="105.0" text="Дата пропуска" />
+            <TableColumn fx:id="predmetColumn" prefWidth="74.0" text="Предмет" />
+            <TableColumn fx:id="kursColumn" prefWidth="58.0" text="Курс" />
+            <TableColumn fx:id="gruppaColumn" prefWidth="75.0" text="Группа" />
+            <TableColumn fx:id="specColumn" prefWidth="126.0" text="Специальность" />
+            <TableColumn fx:id="typeColumn" prefWidth="117.0" text="Тип пропуска" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -30,5 +30,6 @@ public class DeleteProfileController {
             database.removeProfile(profile);
             System.out.println("Профиль удалён!");
         });
+        idProfileField.setText(null);
     }
 }

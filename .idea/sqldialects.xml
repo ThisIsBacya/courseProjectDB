@@ -3,10 +3,14 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/CreateOtchetFromSpecController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForDatabaseController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForFirstKursController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForFourthKursController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForGameDevController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForInfoBezController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForMobileController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForPovtController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForSecondKursController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForThirdKursController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForWebController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/queries/CrossQueryController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/queries/Gruppa0091QueryController.java" dialect="PostgreSQL" />

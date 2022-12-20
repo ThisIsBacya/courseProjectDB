@@ -61,5 +61,11 @@ public class AddOtchetController {
             database.addPoseshaemost(poseshaemost);
             System.out.println("Добавлен новый отчет!");
         });
+        clearButton.setOnAction(actionEvent -> {
+            studentIdIdField.setText(null);
+            predmetIdField.setText(null);
+            chasiField.setText(null);
+            typeField.setText(null);
+        });
     }
 }

@@ -51,5 +51,11 @@ public class AddStudentController {
             }));
             System.out.println("Студент добавлен");
         });
+        clearButton.setOnAction(actionEvent -> {
+            fioField.setText(null);
+            gruppaIdField.setText(null);
+            nomerStudBiletField.setText(null);
+            kursField.setText(null);
+        });
     }
 }

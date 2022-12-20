@@ -42,5 +42,11 @@ public class AddGruppaController {
             database.addGruppa(gruppa);
             System.out.println("Группа добавлена");
         });
+        clearButton.setOnAction(actionEvent -> {
+            gruppaNomerField.setText(null);
+            profileIdField.setText(null);
+            godPostupleniaField.setText(null);
+            formaObucheniaField.setText(null);
+        });
     }
 }

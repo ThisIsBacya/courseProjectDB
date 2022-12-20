@@ -28,5 +28,8 @@ public class AddProfileController {
             database.addProfile(profile);
             System.out.println("Профиль добавлен!");
         });
+        clearButton.setOnAction(actionEvent -> {
+            profileField.setText(null);
+        });
     }
 }

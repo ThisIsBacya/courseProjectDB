@@ -30,5 +30,8 @@ public class DeletePredmetController {
                 database.removePredmet(predmet);
                 System.out.println("Предмет удален");
         });
+        clearButton.setOnAction(actionEvent -> {
+            idPredmetField.setText(null);
+        });
     }
 }

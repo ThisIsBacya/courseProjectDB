@@ -54,7 +54,7 @@ public class TableViewPredmetController {
         tableViewPredmet.setItems(observableList);
 
         addPredmet.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("addPredmet.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/addPredmet.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -79,7 +79,7 @@ public class TableViewPredmetController {
             }
         });
         deletePredmet.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("deletePredmet.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/deletePredmet.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {

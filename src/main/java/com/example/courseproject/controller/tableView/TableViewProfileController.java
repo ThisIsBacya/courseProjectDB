@@ -51,7 +51,7 @@ public class TableViewProfileController {
         tableViewProfile.setItems(observableList);
 
         addProfile.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("addProfile.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/addProfile.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -75,7 +75,7 @@ public class TableViewProfileController {
             }
         });
         deleteProfile.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("deleteProfile.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/deleteProfile.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {

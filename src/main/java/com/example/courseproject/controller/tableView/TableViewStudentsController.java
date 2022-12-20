@@ -57,22 +57,6 @@ public class TableViewStudentsController {
     Connection connection = null;
 
     ObservableList<Student> observableList = FXCollections.observableArrayList();
-
-    @FXML
-    void getAddView(MouseEvent event) {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("addStudent.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            Stage stage = new Stage();
-            Parent root = fxmlLoader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Добавить студента");
-            stage.showAndWait();
-    }
-
     @FXML
     void initialize() {
         showData();

@@ -34,5 +34,9 @@ public class AddPredmetController {
             database.addPredmet(predmet);
             System.out.println("Предмет добавлен");
         });
+        clearButton.setOnAction(actionEvent -> {
+            predmetField.setText(null);
+            chasiField.setText(null);
+        });
     }
 }
