@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/CreateOtchetFromSpecController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForDatabaseController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForFirstKursController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForFourthKursController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForGameDevController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForInfoBezController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForMobileController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForPovtController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForSecondKursController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForThirdKursController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/SemOtchetForWebController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/createOtchet/CreateOtchetFromSpecController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/gruppa/semestr/SemOtchetForGruppa0091Controller.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/gruppa/semestr/SemOtchetForGruppa0091zoController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/gruppa/semestr/SemOtchetForGruppa1091Controller.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/gruppa/semestr/SemOtchetForGruppa1092Controller.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/gruppa/semestr/SemOtchetForGruppa1095Controller.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/gruppa/semestr/SemOtchetForGruppa9091Controller.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/kurs/semestr/SemOtchetForFirstKursController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/kurs/semestr/SemOtchetForFourthKursController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/kurs/semestr/SemOtchetForSecondKursController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/kurs/semestr/SemOtchetForThirdKursController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/specialnost/semestr/SemOtchetForDatabaseController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/specialnost/semestr/SemOtchetForGameDevController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/specialnost/semestr/SemOtchetForInfoBezController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/specialnost/semestr/SemOtchetForMobileController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/specialnost/semestr/SemOtchetForPovtController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/specialnost/semestr/SemOtchetForWebController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/queries/CrossQueryController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/queries/Gruppa0091QueryController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/queries/MultiTableQueryController.java" dialect="PostgreSQL" />

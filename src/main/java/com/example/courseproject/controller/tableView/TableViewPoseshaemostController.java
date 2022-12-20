@@ -106,7 +106,7 @@ public class TableViewPoseshaemostController {
         });
 
         gruppaMenuItem.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("createOtchetFromGruppa.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("createOtchet/createOtchetFromGruppa.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -120,7 +120,7 @@ public class TableViewPoseshaemostController {
         });
 
         specMenuItem.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("createOtchetFromSpec.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("createOtchet/createOtchetFromSpec.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -134,7 +134,7 @@ public class TableViewPoseshaemostController {
         });
 
         kursMenuItem.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("createOtchetFromKurs.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("createOtchet/createOtchetFromKurs.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {

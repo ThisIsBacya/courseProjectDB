@@ -203,6 +203,16 @@ public class Database {
         return list;
     }
 
+    public List<String> getGruppaNomer() throws SQLException {
+        List<String> list = new ArrayList<>();
+        Statement statement = dbConnection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT gruppa_nomer FROM gruppa");
+        while (resultSet.next()) {
+            list.add(resultSet.getString(1));
+        }
+        return list;
+    }
+
     public List<String> getGruppa() throws SQLException {
         List<String> list = new ArrayList<>();
         Statement statement = dbConnection.createStatement();

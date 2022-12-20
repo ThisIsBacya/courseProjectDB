@@ -66,6 +66,7 @@ public class AddOtchetController {
             predmetIdField.setText(null);
             chasiField.setText(null);
             typeField.setText(null);
+            comboBoxType.setItems(null);
         });
     }
 }

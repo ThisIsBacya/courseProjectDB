@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="164.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.createOtchet.CreateOtchetFromSpecController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="44.0" prefWidth="415.0">
+         <children>
+            <Text strokeWidth="0.0" text="Сформировать отчет по специальности" wrappingWidth="353.0546875">
+               <font>
+                  <Font name="Kristen ITC" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="18.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Специальность" wrappingWidth="128.9830722808838">
+               <font>
+                  <Font name="Kristen ITC" size="13.0" />
+               </font>
+            </Text>
+            <JFXComboBox fx:id="specComboBox" prefHeight="25.0" prefWidth="97.0" />
+         </children>
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="415.0">
+         <children>
+            <JFXButton fx:id="createOtchetForSemestrButton" prefHeight="42.0" prefWidth="194.0" style="-fx-background-color: #9C27B0;" text="Cформировать отчет за семестр">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="createOtchetForMonthButton" prefHeight="42.0" prefWidth="194.0" style="-fx-background-color: #9C27B0;" text="Cформировать отчет за месяц" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="5.0" />
+   </padding>
+</VBox>
