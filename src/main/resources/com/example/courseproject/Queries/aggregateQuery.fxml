@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.courseproject.Queries.AggregateQuery"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="166.0" prefWidth="118.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.queries.AggregateQueryController">
+   <children>
+      <AnchorPane prefHeight="120.0" prefWidth="118.0">
+         <children>
+            <TableView fx:id="tableViewQuery" prefHeight="193.0" prefWidth="118.0">
+               <columns>
+                  <TableColumn fx:id="maxColumn" prefWidth="121.0" text="max(chasi)" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

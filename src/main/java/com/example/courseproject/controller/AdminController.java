@@ -196,7 +196,17 @@ import java.io.IOException;
             stage.showAndWait();
         });
         aggregateQuery.setOnAction(actionEvent -> {
-
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Queries/aggregateQuery.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Многотабличный запрос");
+            stage.showAndWait();
         });
         multiTableQuery.setOnAction(actionEvent -> {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Queries/multiTableQuery.fxml"));

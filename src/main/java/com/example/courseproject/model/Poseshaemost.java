@@ -29,6 +29,10 @@ public class Poseshaemost {
         this.type = type;
     }
 
+    public Poseshaemost(int idOtchet) {
+        this.poseshaemost_id = idOtchet;
+    }
+
     public int getPoseshaemost_id() {
         return poseshaemost_id;
     }

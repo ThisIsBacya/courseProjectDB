@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="454.0" prefWidth="799.0" style="-fx-background-color: #EF6C00;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.otchet.gruppa.semestr.SemOtchetForGruppa0091Controller">
+<AnchorPane prefHeight="454.0" prefWidth="799.0" style="-fx-background-color: #EF6C00;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.otchet.gruppa.month.MonthOtchetForGruppa1095Controller">
    <children>
       <TableView fx:id="tableViewOtchetKurs" layoutX="34.0" layoutY="42.0" prefHeight="316.0" prefWidth="633.0">
          <columns>

@@ -44,6 +44,84 @@ public class CreateOtchetFromGruppaController {
         Label label = new Label();
         gruppaComboBox.setOnAction(event -> label.setText(gruppaComboBox.getValue()));
         createOtchetForMonthButton.setOnAction(actionEvent -> {
+            if (label.getText().equals("0091")) {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Otchet/Gruppa/Month/monthOtchetForGruppa0091.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Отчет");
+                stage.showAndWait();
+            }
+            else if (label.getText().equals("0091зо")) {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Otchet/Gruppa/Month/monthOtchetForGruppa0091zo.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Отчет");
+                stage.showAndWait();
+            }
+            else if (label.getText().equals("1091")) {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Otchet/Gruppa/Month/monthOtchetForGruppa1091.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Отчет");
+                stage.showAndWait();
+            }
+            else if (label.getText().equals("1092")) {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Otchet/Gruppa/Month/monthOtchetForGruppa1092.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Отчет");
+                stage.showAndWait();
+            }
+            else if (label.getText().equals("1095")) {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Otchet/Gruppa/Month/monthOtchetForGruppa1095.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Отчет");
+                stage.showAndWait();
+            }
+            else if (label.getText().equals("9091")) {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Otchet/Gruppa/Month/monthOtchetForGruppa9091.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Отчет");
+                stage.showAndWait();
+            }
 
         });
 

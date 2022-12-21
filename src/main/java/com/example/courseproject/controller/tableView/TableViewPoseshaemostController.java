@@ -52,6 +52,10 @@ public class TableViewPoseshaemostController {
     @FXML
     private JFXButton addPoseshaemost;
 
+
+    @FXML
+    private JFXButton delete;
+
     @FXML
     private MenuItem gruppaMenuItem;
 
@@ -117,6 +121,10 @@ public class TableViewPoseshaemostController {
             stage.setScene(new Scene(root));
             stage.setTitle("Отчет по группе");
             stage.showAndWait();
+        });
+
+        delete.setOnAction(actionEvent -> {
+
         });
 
         specMenuItem.setOnAction(actionEvent -> {

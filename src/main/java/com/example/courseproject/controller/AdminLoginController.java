@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -21,8 +22,9 @@ public class AdminLoginController {
     @FXML
     private TextField loginTextId;
 
+
     @FXML
-    private TextField passwordTextId;
+    private PasswordField passwordTextId;
 
     @FXML
     private Button signInButtonId;

@@ -25,12 +25,6 @@ module com.example.courseproject {
     opens com.example.courseproject.controller.tableView to javafx.fxml;
     exports com.example.courseproject.controller.addAndDelete;
     opens com.example.courseproject.controller.addAndDelete to javafx.fxml;
-    exports com.example.courseproject.controller.otchet.specialnost;
-    opens com.example.courseproject.controller.otchet.specialnost to javafx.fxml;
-    exports com.example.courseproject.controller.otchet.kurs;
-    opens com.example.courseproject.controller.otchet.kurs to javafx.fxml;
-    exports com.example.courseproject.controller.otchet.gruppa;
-    opens com.example.courseproject.controller.otchet.gruppa to javafx.fxml;
     exports com.example.courseproject.controller.otchet.gruppa.semestr;
     opens com.example.courseproject.controller.otchet.gruppa.semestr to javafx.fxml;
     exports com.example.courseproject.controller.otchet.kurs.semestr;
@@ -39,4 +33,10 @@ module com.example.courseproject {
     opens com.example.courseproject.controller.otchet.specialnost.semestr to javafx.fxml;
     exports com.example.courseproject.controller.createOtchet;
     opens com.example.courseproject.controller.createOtchet to javafx.fxml;
+    exports com.example.courseproject.controller.otchet.gruppa.month;
+    opens com.example.courseproject.controller.otchet.gruppa.month to javafx.fxml;
+    exports com.example.courseproject.controller.otchet.kurs.month;
+    opens com.example.courseproject.controller.otchet.kurs.month to javafx.fxml;
+    exports com.example.courseproject.controller.otchet.specialnost.month;
+    opens com.example.courseproject.controller.otchet.specialnost.month to javafx.fxml;
 }

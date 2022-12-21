@@ -2,6 +2,7 @@ package com.example.courseproject.database;
 
 import com.example.courseproject.model.*;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -187,6 +188,18 @@ public class Database {
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(delete);
             preparedStatement.setInt(1, predmet.getPredmet_id());
+            preparedStatement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void removeOtchet(Poseshaemost poseshaemost) {
+        String delete = "DELETE FROM " + Const.POSESHAEMOST_TABLE + " WHERE " + Const.POSESHAEMOST_ID + "=?";
+
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(delete);
+            preparedStatement.setInt(1, poseshaemost.getPoseshaemost_id());
             preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);

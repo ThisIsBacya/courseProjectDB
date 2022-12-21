@@ -16,6 +16,7 @@ public class Queries {
     private int kurs;
     private String gruppa_nomer;
     private String nazvanie_profila;
+    private int max;
 
     public Queries(int poseshaemost_id, Date data, int students_id, int predmet_id, int chasi_propuska, String type) {
         this.poseshaemost_id = poseshaemost_id;
@@ -75,6 +76,10 @@ public class Queries {
         this.nazv_predmeta = nazv_predmeta;
         this.gruppa_nomer = gruppa_nomer;
         this.type = type;
+    }
+
+    public Queries(int max) {
+        this.max = max;
     }
 
     public Date getData() {
