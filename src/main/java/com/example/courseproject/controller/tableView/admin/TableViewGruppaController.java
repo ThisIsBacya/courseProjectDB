@@ -1,4 +1,4 @@
-package com.example.courseproject.controller.tableView;
+package com.example.courseproject.controller.tableView.admin;
 
 import com.example.courseproject.HelloApplication;
 import com.example.courseproject.database.Database;

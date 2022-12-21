@@ -1,16 +1,20 @@
 package com.example.courseproject.controller;
 
 import com.example.courseproject.HelloApplication;
+import com.example.courseproject.model.User;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-    public class MainController {
+import java.util.Objects;
+
+public class MainAdminController extends LoginController {
 
         @FXML
         private MenuItem aggregateQuery;
@@ -55,30 +59,36 @@ import java.io.IOException;
         private JFXButton showTableViewStudents;
 
         @FXML
+        private JFXButton showTableViewUsers;
+
+        @FXML
         private MenuItem tableQuery;
 
         @FXML
         private MenuItem unionQuery;
 
+        User user = new User();
+        LoginController loginController = new LoginController();
+
     @FXML
     void initialize() {
         showTableViewStudents.setOnAction(actionEvent -> {
-
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/tableViewStudents.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            Stage stage = new Stage();
-            Parent root = fxmlLoader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Таблица Студенты");
-            stage.showAndWait();
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/admin/tableViewStudents.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Таблица Студенты");
+                stage.showAndWait();
         });
 
+
         showTableViewProfile.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/tableViewProfile.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/admin/tableViewProfile.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -91,7 +101,7 @@ import java.io.IOException;
             stage.showAndWait();
         });
         showTableViewGruppa.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/tableViewGruppa.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/admin/tableViewGruppa.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -104,7 +114,7 @@ import java.io.IOException;
             stage.showAndWait();
         });
         showTableViewPredmet.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/tableViewPredmet.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/admin/tableViewPredmet.fxml"));
             try {
                 fxmlLoader.load();
             }
@@ -118,7 +128,7 @@ import java.io.IOException;
             stage.showAndWait();
         });
         showTableViewPoseshaemost.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/tableViewPoseshaemost.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/admin/tableViewPoseshaemost.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -128,6 +138,19 @@ import java.io.IOException;
             Parent root = fxmlLoader.getRoot();
             stage.setScene(new Scene(root));
             stage.setTitle("Таблица Посещаемость");
+            stage.showAndWait();
+        });
+        showTableViewUsers.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TableViews/admin/tableViewUsers.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Таблица Пользователи");
             stage.showAndWait();
         });
         conditionalQuery.setOnAction(actionEvent -> {

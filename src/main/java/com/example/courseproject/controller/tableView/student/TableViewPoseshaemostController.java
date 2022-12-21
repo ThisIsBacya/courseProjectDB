@@ -1,4 +1,4 @@
-package com.example.courseproject.controller.tableView;
+package com.example.courseproject.controller.tableView.student;
 
 import com.example.courseproject.HelloApplication;
 import com.example.courseproject.database.Database;
@@ -82,51 +82,6 @@ public class TableViewPoseshaemostController {
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         tableViewPoseshaemost.setItems(observableList);
 
-        addPoseshaemost.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/addOtchet.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            Stage stage = new Stage();
-            Parent root = fxmlLoader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Добавить отчет о посещаемости");
-            stage.showAndWait();
-        });
-
-        update.setOnAction(actionEvent -> {
-            observableList.clear();
-            try {
-                ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM poseshaemost ORDER BY poseshaemost_id ASC");
-                while (resultSet.next()) {
-                    observableList.add(new Poseshaemost(resultSet.getInt("poseshaemost_id"), resultSet.getDate("data"),
-                            resultSet.getInt("students_id"), resultSet.getInt("predmet_id"), resultSet.getInt("chasi_propuska"), resultSet.getString("type")));
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        });
-
-        gruppaMenuItem.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("createOtchet/createOtchetFromGruppa.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            Stage stage = new Stage();
-            Parent root = fxmlLoader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Отчет по группе");
-            stage.showAndWait();
-        });
-
-        delete.setOnAction(actionEvent -> {
-
-        });
-
         specMenuItem.setOnAction(actionEvent -> {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("createOtchet/createOtchetFromSpec.fxml"));
             try {
@@ -143,6 +98,19 @@ public class TableViewPoseshaemostController {
 
         kursMenuItem.setOnAction(actionEvent -> {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("createOtchet/createOtchetFromKurs.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = new Stage();
+            Parent root = fxmlLoader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Отчет по курсу");
+            stage.showAndWait();
+        });
+        gruppaMenuItem.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("createOtchet/createOtchetFromGruppa.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {

@@ -1,4 +1,4 @@
-package com.example.courseproject.controller.tableView;
+package com.example.courseproject.controller.tableView.student;
 
 import com.jfoenix.controls.JFXButton;
 import com.example.courseproject.HelloApplication;
@@ -52,11 +52,11 @@ public class TableViewStudentsController {
     private JFXButton delete;
 
 
-
     Database database = new Database();
     Connection connection = null;
 
     ObservableList<Student> observableList = FXCollections.observableArrayList();
+
     @FXML
     void initialize() {
         showData();
@@ -67,45 +67,6 @@ public class TableViewStudentsController {
         nomerStudBiletColumn.setCellValueFactory(new PropertyValueFactory<>("nomer_stud_bilet"));
         kursColumn.setCellValueFactory(new PropertyValueFactory<>("kurs"));
         studentsTable.setItems(observableList);
-
-        addStudent.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/addStudent.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            Stage stage = new Stage();
-            Parent root = fxmlLoader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Добавить студента");
-            stage.showAndWait();
-        });
-        update.setOnAction(actionEvent -> {
-            observableList.clear();
-            try {
-                ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM students");
-                while (resultSet.next()) {
-                    observableList.add(new Student(resultSet.getInt("students_id"), resultSet.getString("fam_name_otch"),
-                            resultSet.getInt("gruppa_id"), resultSet.getString("nomer_stud_bilet"), resultSet.getInt("kurs")));
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            };
-        });
-        delete.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/deleteStudent.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            Stage stage = new Stage();
-            Parent root = fxmlLoader.getRoot();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Удалить студента");
-            stage.showAndWait();
-        });
     }
 
     private void showData() {

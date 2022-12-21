@@ -16,6 +16,8 @@ public class Const {
     public static final String USERS_LOGIN = "login";
     public static final String USERS_PASSWORD = "password";
 
+    public static final String USERS_ROLE = "role";
+
     // Константы для групп
     public static final String GRUPPA_TABLE = "gruppa";
     public static final String GRUPPA_ID = "gruppa_id";

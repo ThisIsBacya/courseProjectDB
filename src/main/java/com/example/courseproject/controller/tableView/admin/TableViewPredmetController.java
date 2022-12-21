@@ -1,8 +1,8 @@
-package com.example.courseproject.controller.tableView;
+package com.example.courseproject.controller.tableView.admin;
 
 import com.example.courseproject.HelloApplication;
 import com.example.courseproject.database.Database;
-import com.example.courseproject.model.Profile;
+import com.example.courseproject.model.Predmet;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,25 +20,27 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class TableViewProfileController {
+public class TableViewPredmetController {
+    @FXML
+    private TableView<Predmet> tableViewPredmet;
+    @FXML
+    private TableColumn<Predmet, Integer> predmet_idColumn;
+    @FXML
+    private TableColumn<Predmet, String> nazv_predmetaColumn;
+    @FXML
+    private TableColumn<Predmet, Integer> chasiColumn;
 
     @FXML
-    private TableView<Profile> tableViewProfile;
-    @FXML
-    private TableColumn<Profile, String> profile_idColumn;
-    @FXML
-    private TableColumn<Profile, String> nazvanie_profilaColumn;
-
-    @FXML
-    private JFXButton addProfile;
-
-    @FXML
-    private JFXButton deleteProfile;
+    private JFXButton addPredmet;
 
     @FXML
     private JFXButton update;
 
-    ObservableList<Profile> observableList = FXCollections.observableArrayList();
+    @FXML
+    private JFXButton deletePredmet;
+
+
+    ObservableList<Predmet> observableList = FXCollections.observableArrayList();
 
     Database database = new Database();
     Connection connection = null;
@@ -46,12 +48,13 @@ public class TableViewProfileController {
     @FXML
     void initialize() {
         showData();
-        profile_idColumn.setCellValueFactory(new PropertyValueFactory<>("profile_id"));
-        nazvanie_profilaColumn.setCellValueFactory(new PropertyValueFactory<>("nazvanie_profila"));
-        tableViewProfile.setItems(observableList);
+        predmet_idColumn.setCellValueFactory(new PropertyValueFactory<>("predmet_id"));
+        nazv_predmetaColumn.setCellValueFactory(new PropertyValueFactory<>("nazv_predmeta"));
+        chasiColumn.setCellValueFactory(new PropertyValueFactory<>("chasi"));
+        tableViewPredmet.setItems(observableList);
 
-        addProfile.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/addProfile.fxml"));
+        addPredmet.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/addPredmet.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -60,22 +63,23 @@ public class TableViewProfileController {
             Stage stage = new Stage();
             Parent root = fxmlLoader.getRoot();
             stage.setScene(new Scene(root));
-            stage.setTitle("Добавить профиль");
+            stage.setTitle("Добавить предмет");
             stage.showAndWait();
         });
+
         update.setOnAction(actionEvent -> {
             observableList.clear();
             try {
-                ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM profile ORDER BY profile_id ASC");
+                ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM predmet");
                 while (resultSet.next()) {
-                    observableList.add(new Profile(resultSet.getInt("profile_id"), resultSet.getString("nazvanie_profila")));
+                    observableList.add(new Predmet(resultSet.getInt("predmet_id"), resultSet.getString("nazv_predmeta"), resultSet.getInt("chasi")));
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         });
-        deleteProfile.setOnAction(actionEvent -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/deleteProfile.fxml"));
+        deletePredmet.setOnAction(actionEvent -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Add and Delete/deletePredmet.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
@@ -84,7 +88,7 @@ public class TableViewProfileController {
             Stage stage = new Stage();
             Parent root = fxmlLoader.getRoot();
             stage.setScene(new Scene(root));
-            stage.setTitle("Удалить профиль");
+            stage.setTitle("Удалить предмет");
             stage.showAndWait();
         });
     }
@@ -92,11 +96,10 @@ public class TableViewProfileController {
     private void showData() {
         try {
             connection = database.getConnection();
-            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM profile ORDER BY profile_id ASC");
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM predmet");
             while (resultSet.next()) {
-                observableList.add(new Profile(resultSet.getInt("profile_id"), resultSet.getString("nazvanie_profila")));
+                observableList.add(new Predmet(resultSet.getInt("predmet_id"), resultSet.getString("nazv_predmeta"), resultSet.getInt("chasi")));
             }
-
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

@@ -27,45 +27,77 @@ public class LoginController {
 
     @FXML
     private Button signInButtonId;
+
+    Database database = new Database();
+    User user = new User();
+    Object userRole = new Object();
+    public String role = "";
+
     @FXML
     void initialize() {
         signInButtonId.setOnAction(actionEvent -> {
             String login = loginTextId.getText().trim();
             String password = passwordTextId.getText().trim();
-            if(!login.equals("") && !password.equals("")) {
+            if (!login.equals("") && !password.equals("")) {
                 try {
                     loginAdmin(login, password);
                 } catch (SQLException | ClassNotFoundException e) {
                     throw new RuntimeException(e);
                 }
-            }
-            else {
+            } else {
                 System.out.println("Введите логин и пароль");
             }
         });
     }
 
     private void loginAdmin(String login, String password) throws SQLException, ClassNotFoundException {
-       Database database = new Database();
-       database.getConnection();
-       User user = new User();
-       user.setLogin(login);
-       user.setPassword(password);
-       ResultSet resultSet = database.getLoginAdmin(user);
+        Database database = new Database();
+        database.getConnection();
+        User user = new User();
+        user.setLogin(login);
+        user.setPassword(password);
+        ResultSet resultSet = database.encryptoPassword(user);
+        if (resultSet.next()) {
 
-       if (resultSet.next()) {
-           signInButtonId.getScene().getWindow().hide();
-           FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main.fxml"));
-           try {
-               fxmlLoader.load();
-           } catch (IOException e) {
-               throw new RuntimeException(e);
-           }
-           Stage stage = new Stage();
-           Parent root = fxmlLoader.getRoot();
-           stage.setScene(new Scene(root));
-           stage.setTitle("Окно администратора");
-           stage.showAndWait();
-       }
+            role = resultSet.getString(1);
+            signInButtonId.getScene().getWindow().hide();
+            if (role.equals("admin")) {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainAdmin.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Главное окно");
+                stage.showAndWait();
+            } else if (role.equals("student")) {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainStudent.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Главное окно");
+                stage.showAndWait();
+            } else if (role.equals("prepod")) {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainPrepod.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = new Stage();
+                Parent root = fxmlLoader.getRoot();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Главное окно");
+                stage.showAndWait();
+            }
+        }
     }
 }

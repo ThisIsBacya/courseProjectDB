@@ -43,12 +43,6 @@ public class AddStudentController {
             int kurs = Integer.parseInt(kursField.getText());
             Student student = new Student(FIO, gruppaId, nomerStudBilet, kurs);
             database.addStudent(student);
-            Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");
-            gruppaIdField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
-                if(!p.matcher(newValue).matches()) {
-                    gruppaIdField.setText(oldValue);
-                }
-            }));
             System.out.println("Студент добавлен");
         });
         clearButton.setOnAction(actionEvent -> {

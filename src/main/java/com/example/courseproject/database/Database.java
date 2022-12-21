@@ -23,44 +23,6 @@ public class Database {
         return dbConnection;
     }
 
-//    public void signUpStudent() {
-//        String insert = "INSERT INTO " + Const.STUDENTS_TABLE + "(" +
-//
-//    }
-
-    //Логин для студента
-    public ResultSet getNomerStudBilet(Student student) {
-        ResultSet resultSet = null;
-
-        String select = "SELECT * FROM " + Const.STUDENTS_TABLE + " WHERE " +
-                Const.STUDENTS_STUDBILET + "=?";
-        try {
-            PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
-            preparedStatement.setString(1, student.getNomer_stud_bilet());
-            resultSet = preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
-
-    //Логин для админа
-    public ResultSet getLoginAdmin(User user) {
-        ResultSet resultSet = null;
-
-        String select = "SELECT * FROM " + Const.USERS_TABLE + " WHERE " +
-                Const.USERS_LOGIN + "=? AND " + Const.USERS_PASSWORD + "=?";
-        try {
-            PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
-            preparedStatement.setString(1, user.getLogin());
-            preparedStatement.setString(2, user.getPassword());
-            resultSet = preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
-
     public void addStudent(Student student) {
         String insert = "INSERT INTO " + Const.STUDENTS_TABLE + "(" + Const.STUDENTS_FAM_NAME_OTCH + "," +
                 Const.STUDENTS_GRUPPAID + "," + Const.STUDENTS_STUDBILET + "," + Const.STUDENTS_KURS + ")" +
@@ -146,7 +108,54 @@ public class Database {
         }
     }
 
-    public void removeStudent(Student student) {
+    public ResultSet encryptoPassword(User user) {
+        ResultSet resultSet = null;
+        String select = "SELECT role FROM " + Const.USERS_TABLE + " WHERE " + Const.USERS_LOGIN + "=?" +
+                " AND " + Const.USERS_PASSWORD + " = crypt(?," + Const.USERS_PASSWORD + ")";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(select);
+            preparedStatement.setString(1, user.getLogin());
+            preparedStatement.setString(2, user.getPassword());
+            resultSet = preparedStatement.executeQuery();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(select);
+        return resultSet;
+    }
+
+    public void addUser(User user) {
+        String insert = "INSERT INTO " + Const.USERS_TABLE + "(" + Const.USERS_LOGIN + "," + Const.USERS_PASSWORD + "," + Const.USERS_ROLE + ")"
+                + "VALUES (?,?,?)";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(insert);
+            preparedStatement.setString(1, user.getLogin());
+            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(3, user.getRole());
+            preparedStatement.executeUpdate();
+            hashPassword(user);
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void hashPassword(User user) {
+        String update = "UPDATE users SET password = crypt(?, gen_salt('md5')) WHERE " + Const.USERS_LOGIN + "=?" +
+                " AND " + Const.USERS_PASSWORD + "=?";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(update);
+            preparedStatement.setString(1, user.getPassword());
+            preparedStatement.setString(2, user.getLogin());
+            preparedStatement.setString(3, user.getPassword());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+        public void removeStudent(Student student) {
         String delete = "DELETE FROM " + Const.STUDENTS_TABLE + " WHERE " + Const.STUDENTS_ID + " =?";
 
         try {
@@ -206,6 +215,17 @@ public class Database {
         }
     }
 
+    public void removeUser(User user) {
+        String delete = "DELETE FROM " + Const.USERS_TABLE + " WHERE " + Const.USERS_ID + "=?";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(delete);
+            preparedStatement.setInt(1, user.getUser_id());
+            preparedStatement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<String> getNazvProfile() throws SQLException {
         List<String> list = new ArrayList<>();
         Statement statement = dbConnection.createStatement();
@@ -235,42 +255,5 @@ public class Database {
         }
         return list;
     }
-
-    public List<Otchet> getSpecPovtOtchetSemestr() throws SQLException {
-
-        List<Otchet> list = new ArrayList<>();
-        Statement statement = dbConnection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * from getotchetfromsemestrforspecpovt");
-        while (resultSet.next()) {
-            String fam_name_otch = resultSet.getString(1);
-            Date data = resultSet.getDate(2);
-            String nazv_predmeta = resultSet.getString(3);
-            int kurs = resultSet.getInt(4);
-            String gruppa_nomer = resultSet.getString(5);
-            String nazvanie_profila = resultSet.getString(6);
-            String type = resultSet.getString(7);
-            list.add(new Otchet(fam_name_otch, data, nazv_predmeta, kurs, gruppa_nomer, nazvanie_profila, type));
-        }
-        return list;
-    }
-
-    public List<Otchet> getSpecAndroidOtchetSemestr() throws SQLException {
-
-        List<Otchet> list = new ArrayList<>();
-        Statement statement = dbConnection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * from getotchetfromsemestrforspecmobile");
-        while (resultSet.next()) {
-            String fam_name_otch = resultSet.getString(1);
-            Date data = resultSet.getDate(2);
-            String nazv_predmeta = resultSet.getString(3);
-            int kurs = resultSet.getInt(4);
-            String gruppa_nomer = resultSet.getString(5);
-            String nazvanie_profila = resultSet.getString(6);
-            String type = resultSet.getString(7);
-            list.add(new Otchet(fam_name_otch, data, nazv_predmeta, kurs, gruppa_nomer, nazvanie_profila, type));
-        }
-        return list;
-    }
-
 
 }
