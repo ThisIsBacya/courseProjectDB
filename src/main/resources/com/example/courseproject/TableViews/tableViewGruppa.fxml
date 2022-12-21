@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.tableView.TableViewGruppaController">
@@ -28,6 +29,7 @@
             <JFXButton fx:id="addGruppa" layoutX="606.0" layoutY="117.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Добавить" />
             <JFXButton fx:id="deleteGruppa" layoutX="608.0" layoutY="223.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Удалить" />
             <JFXButton fx:id="update" layoutX="608.0" layoutY="171.0" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Обновить" />
+            <Pane layoutY="48.0" prefHeight="2.0" prefWidth="824.0" style="-fx-background-color: #212121;" />
          </children>
       </AnchorPane>
    </children>

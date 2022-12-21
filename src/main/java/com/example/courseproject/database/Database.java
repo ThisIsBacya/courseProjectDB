@@ -273,22 +273,4 @@ public class Database {
     }
 
 
-//
-//
-//    public ResultSet getStudentInfo(String nomerStudBilet) {
-//        ResultSet resultSet = null;
-//        Student student = new Student();
-//        String select = "SELECT * FROM " + Const.STUDENTS_TABLE + " WHERE " + Const.STUDENTS_STUDBILET + " = '" + nomerStudBilet + "'";
-//        try {
-//            PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
-//            resultSet = preparedStatement.executeQuery();
-//            resultSet.next();
-//            System.out.println(resultSet.getString("fam_name_otch"));
-//        }
-//        catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println(select);
-//        return resultSet;
-//    }
 }

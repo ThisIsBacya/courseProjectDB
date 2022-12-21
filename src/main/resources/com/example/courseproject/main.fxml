@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="494.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.AdminController">
+<AnchorPane prefHeight="494.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.MainController">
    <children>
       <AnchorPane prefHeight="494.0" prefWidth="335.0" style="-fx-background-color: #FF7F50;">
          <children>
@@ -33,8 +33,8 @@
                         <MenuItem fx:id="gruppa0091Query" mnemonicParsing="false" text="Пропуск по группе 0091" />
                     </items>
                   </MenuButton>
-                  <Pane layoutY="49.0" prefHeight="5.0" prefWidth="352.0" style="-fx-background-color: #212121;" />
-                  <Text layoutX="32.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Основная панель">
+                  <Pane layoutY="49.0" prefHeight="2.0" prefWidth="352.0" style="-fx-background-color: #212121;" />
+                  <Text layoutX="47.0" layoutY="39.0" strokeWidth="0.0" text="Главная панель" wrappingWidth="257.201171875">
                      <font>
                         <Font size="36.0" />
                      </font>
