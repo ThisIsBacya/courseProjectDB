@@ -34,7 +34,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/specialnost/semestr/SemOtchetForMobileController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/specialnost/semestr/SemOtchetForPovtController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/otchet/specialnost/semestr/SemOtchetForWebController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/queries/AggregateQueryController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/queries/CrossQueryController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/queries/Gruppa0091QueryController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/queries/MultiTableQueryController.java" dialect="PostgreSQL" />

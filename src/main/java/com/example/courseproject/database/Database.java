@@ -120,7 +120,6 @@ public class Database {
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(select);
         return resultSet;
     }
 
