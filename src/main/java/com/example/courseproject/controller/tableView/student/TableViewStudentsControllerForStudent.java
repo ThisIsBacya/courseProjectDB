@@ -1,27 +1,20 @@
 package com.example.courseproject.controller.tableView.student;
 
 import com.jfoenix.controls.JFXButton;
-import com.example.courseproject.HelloApplication;
 import com.example.courseproject.database.Database;
 import com.example.courseproject.model.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class TableViewStudentsController {
+public class TableViewStudentsControllerForStudent {
 
     @FXML
     private TableColumn<Student, Integer> idColumn;
@@ -44,13 +37,6 @@ public class TableViewStudentsController {
 
     @FXML
     private JFXButton addStudent;
-
-    @FXML
-    private JFXButton update;
-
-    @FXML
-    private JFXButton delete;
-
 
     Database database = new Database();
     Connection connection = null;

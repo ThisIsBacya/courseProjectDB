@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.tableView.prepod.TableViewPredmetController">
+<AnchorPane prefHeight="400.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.controller.tableView.prepod.TableViewPredmetControllerForPrepod">
    <children>
       <AnchorPane layoutX="-8.0" prefHeight="400.0" prefWidth="418.0" style="-fx-background-color: #EF6C00;">
          <children>

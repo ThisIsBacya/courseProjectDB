@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -40,7 +41,7 @@ public class LoginController {
             String password = passwordTextId.getText().trim();
             if (!login.equals("") && !password.equals("")) {
                 try {
-                    loginAdmin(login, password);
+                    login(login, password);
                 } catch (SQLException | ClassNotFoundException e) {
                     throw new RuntimeException(e);
                 }
@@ -50,7 +51,7 @@ public class LoginController {
         });
     }
 
-    private void loginAdmin(String login, String password) throws SQLException, ClassNotFoundException {
+    private void login(String login, String password) throws SQLException, ClassNotFoundException {
         Database database = new Database();
         database.getConnection();
         User user = new User();
@@ -98,6 +99,13 @@ public class LoginController {
                 stage.setTitle("Главное окно");
                 stage.showAndWait();
             }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Сообщение об ошибке");
+            alert.setHeaderText("Ошибка!");
+            alert.setContentText("Введите правильные логин или пароль");
+            alert.showAndWait();
         }
     }
 }

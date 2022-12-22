@@ -22,7 +22,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class TableViewPoseshaemostController {
+public class TableViewPoseshaemostControllerForStudent {
 
     @FXML
     private TableView<Poseshaemost> tableViewPoseshaemost;
@@ -44,17 +44,9 @@ public class TableViewPoseshaemostController {
 
     @FXML
     private TableColumn<Poseshaemost, String> typeColumn;
-
-
-    @FXML
-    private JFXButton update;
-
+    
     @FXML
     private JFXButton addPoseshaemost;
-
-
-    @FXML
-    private JFXButton delete;
 
     @FXML
     private MenuItem gruppaMenuItem;

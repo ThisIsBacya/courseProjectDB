@@ -50,7 +50,7 @@ public class SemOtchetForPovtController {
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
-        showDataForPovt();
+        showData();
         fioColumn.setCellValueFactory(new PropertyValueFactory<>("fam_name_otch"));
         datePropuskColumn.setCellValueFactory(new PropertyValueFactory<>("data"));
         predmetColumn.setCellValueFactory(new PropertyValueFactory<>("nazv_predmeta"));
@@ -61,7 +61,7 @@ public class SemOtchetForPovtController {
         tableViewOtchetKurs.setItems(observableList);
     }
 
-    private void showDataForPovt() {
+    private void showData() {
         try {
             connection = database.getConnection();
             ResultSet resultSet = connection.createStatement().executeQuery("SELECT * from getotchetfromsemestrforspecpovt");

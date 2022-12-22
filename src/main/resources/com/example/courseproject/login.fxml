@@ -20,7 +20,7 @@
                         </Text>
                     </children>
                 </AnchorPane>
-                <TextField fx:id="loginTextId" layoutX="161.0" layoutY="200.0" prefHeight="48.0" prefWidth="279.0" promptText="Логин" text="Логин" />
+                <TextField fx:id="loginTextId" layoutX="161.0" layoutY="200.0" prefHeight="48.0" prefWidth="279.0" promptText="Логин" />
                 <Button fx:id="signInButtonId" layoutX="161.0" layoutY="324.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="279.0" text="Войти" />
             <PasswordField fx:id="passwordTextId" layoutX="161.0" layoutY="267.0" prefHeight="43.0" prefWidth="279.0" promptText="Пароль" />
             </children>

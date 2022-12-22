@@ -49,9 +49,9 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/tableView/admin/TableViewProfileController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/tableView/admin/TableViewStudentsController.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/tableView/admin/TableViewUsersController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/tableView/prepod/TableViewPredmetController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/tableView/student/TableViewPoseshaemostController.java" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/tableView/student/TableViewStudentsController.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/tableView/prepod/TableViewPredmetControllerForPrepod.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/tableView/student/TableViewPoseshaemostControllerForStudent.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/controller/tableView/student/TableViewStudentsControllerForStudent.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/example/courseproject/database/Database.java" dialect="PostgreSQL" />
   </component>
 </project>

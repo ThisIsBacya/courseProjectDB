@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class MainAdminController extends LoginController {
+public class MainAdminController {
 
         @FXML
         private MenuItem aggregateQuery;

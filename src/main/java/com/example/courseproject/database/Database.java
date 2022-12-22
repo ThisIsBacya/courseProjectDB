@@ -1,12 +1,9 @@
 package com.example.courseproject.database;
 
 import com.example.courseproject.model.*;
-import javafx.collections.ObservableList;
-import javafx.geometry.Pos;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
 
 public class Database {
@@ -108,21 +105,6 @@ public class Database {
         }
     }
 
-    public ResultSet encryptoPassword(User user) {
-        ResultSet resultSet = null;
-        String select = "SELECT role FROM " + Const.USERS_TABLE + " WHERE " + Const.USERS_LOGIN + "=?" +
-                " AND " + Const.USERS_PASSWORD + " = crypt(?," + Const.USERS_PASSWORD + ")";
-        try {
-            PreparedStatement preparedStatement = getConnection().prepareStatement(select);
-            preparedStatement.setString(1, user.getLogin());
-            preparedStatement.setString(2, user.getPassword());
-            resultSet = preparedStatement.executeQuery();
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        return resultSet;
-    }
-
     public void addUser(User user) {
         String insert = "INSERT INTO " + Const.USERS_TABLE + "(" + Const.USERS_LOGIN + "," + Const.USERS_PASSWORD + "," + Const.USERS_ROLE + ")"
                 + "VALUES (?,?,?)";
@@ -138,6 +120,20 @@ public class Database {
         }
     }
 
+    public ResultSet encryptoPassword(User user) {
+        ResultSet resultSet = null;
+        String select = "SELECT role FROM " + Const.USERS_TABLE + " WHERE " + Const.USERS_LOGIN + "=?" +
+                " AND " + Const.USERS_PASSWORD + " = crypt(?," + Const.USERS_PASSWORD + ")";
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(select);
+            preparedStatement.setString(1, user.getLogin());
+            preparedStatement.setString(2, user.getPassword());
+            resultSet = preparedStatement.executeQuery();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return resultSet;
+    }
 
     public void hashPassword(User user) {
         String update = "UPDATE users SET password = crypt(?, gen_salt('md5')) WHERE " + Const.USERS_LOGIN + "=?" +
@@ -244,15 +240,4 @@ public class Database {
         }
         return list;
     }
-
-    public List<String> getGruppa() throws SQLException {
-        List<String> list = new ArrayList<>();
-        Statement statement = dbConnection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT gruppa_nomer FROM gruppa");
-        while (resultSet.next()) {
-            list.add(resultSet.getString(1));
-        }
-        return list;
-    }
-
 }
